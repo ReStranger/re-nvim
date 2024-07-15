@@ -1,16 +1,13 @@
-
-local null_ls = require "null-ls"
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local null_ls = require("null-ls")
 
 local b = null_ls.builtins
 
 local sources = {
 
-  b.diagnostics.mypy,
-  b.diagnostics.ruff,
+	b.diagnostics.mypy,
 }
 
-null_ls.setup {
-  debug = true,
-  sources = sources,
-}
+null_ls.setup({
+	debug = true,
+	sources = sources,
+})
