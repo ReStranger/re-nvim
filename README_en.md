@@ -9,7 +9,7 @@
 
 ### **Dependencies:**
 
-- [neovim>=0.10](https://neovim.io/)
+- [neovim](https://neovim.io/)>=0.10
 - [nodejs](https://nodejs.org/en/)
 - `unzip`
 - `gcc` or `clang`
@@ -36,6 +36,12 @@ sudo dnf install neovim nodejs unzip gcc
 
 ```sh
 sudo emerge neovim nodejs unzip
+```
+
+**Termux:**
+
+```sh
+pkg install neovim git clang unzip nodejs python python-pip rust ripgrep fzf
 ```
 
 ### **Installation config:**

@@ -25,6 +25,19 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.pyright.setup {
+  settings = {
+    pyright = {
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        ignore = { "*" },
+      },
+    },
+  },
+}
+
 lspconfig.clangd.setup {
   cmd = { "clangd", "--compile-commands-dir=." },
 }
