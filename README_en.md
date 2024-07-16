@@ -1,13 +1,13 @@
 <h1 style="text-align: center;">RE:NeoVim</h1>
 <hr>
 
-## О конфиге
+## About
 
-## Скиншоты
+## Screenshots
 
-## Установка
+## Installation
 
-### **Зависимости:**
+### **Dependencies:**
 
 - [neovim>=0.10](https://neovim.io/)
 - [nodejs](https://nodejs.org/en/)
@@ -38,7 +38,7 @@ sudo dnf install neovim nodejs unzip gcc
 sudo emerge neovim nodejs unzip
 ```
 
-### **Установка конфига:**
+### **Installation config:**
 
 ```sh
 git clone https://github.com/ReStranger/re-nvim.git
