@@ -41,9 +41,5 @@ sudo emerge neovim nodejs unzip
 ### **Installation config:**
 
 ```sh
-git clone https://github.com/ReStranger/re-nvim.git
-cd re-nvim
-mkdir -p ~/.config/nvim
-cp -rf ./* ~/.config/nvim
-nvim -c "MasonInstallAll"
+git clone https://github.com/ReStranger/re-nvim.git ~/.config/nvim && nvim -c "MasonInstallAll"
 ```
