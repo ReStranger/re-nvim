@@ -173,8 +173,8 @@ return {
   },
   {
     "MeanderingProgrammer/markdown.nvim",
+    ft = { "markdown", "markdown_inline" },
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-    event = "BufReadPost",
     config = function()
       require("render-markdown").setup {}
     end,
@@ -192,8 +192,8 @@ return {
   --formating plugin
   {
     "dundalek/parpar.nvim",
+    event = "BufWritePre",
     dependencies = { "gpanders/nvim-parinfer", "julienvincent/nvim-paredit" },
-    lazy = false,
   },
   {
     "windwp/nvim-ts-autotag",
@@ -273,7 +273,6 @@ return {
     "mrcjkb/rustaceanvim",
     ft = { "rust" },
     version = "^4",
-    lazy = false,
   },
   {
     "saecki/crates.nvim",
