@@ -27,8 +27,8 @@ return {
     opts = {
       ensure_installed = {
         -- lua stuff
-        "lua-language-server", --x86_64 only. also install in you $PATH
-        "stylua", --x86_64 only. also install in you $PATH
+        "lua-language-server", --x86_64 only, also install in you $PATH
+        "stylua", --x86_64 only, also install in you $PATH
         -- web dev stuff
         "html-lsp",
         "css-lsp",
@@ -38,10 +38,10 @@ return {
         "typescript-language-server",
         "js-debug-adapter",
         -- c/cpp stuff
-        "clangd", --x86_64 only. also install in you $PATH
+        "clangd", --x86_64 only, also install in you $PATH
         "clang-format",
         -- rust
-        "rust-analyzer", --x86_64 only. also install in you $PATH
+        "rust-analyzer", --x86_64 only, also install in you $PATH
         -- python stuff
         "pyright",
         "black",

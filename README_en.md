@@ -3,6 +3,8 @@
 
 ## About
 
+I would like to express my deep gratitude to the [NvChad](https://github.com/NvChad) team. Thanks to them, these repositories with configs exist, and it was on their basic config (still at 2.0) that I began to get acquainted with neovim.
+
 ## Screenshots
 
 ## Installation
@@ -11,13 +13,20 @@
 
 - [neovim](https://neovim.io/)>=0.10
 - [nodejs](https://nodejs.org/en/)
+- `rust`
+- `python3`
 - `unzip`
 - `gcc` or `clang`
+
+**Optional:**
+
+- `ripgrep`
+- `fzf`
 
 **ArchLinux:**
 
 ```sh
-sudo pacman -S --needed neovim npm unzip gcc
+sudo pacman -S --needed neovim npm python python-pip rust unzip gcc ripgrep fzf
 ```
 
 **Debian/Ubuntu/Termux:**
@@ -35,7 +44,7 @@ sudo dnf install neovim nodejs unzip gcc
 **Gentoo:**
 
 ```sh
-sudo emerge neovim nodejs unzip
+sudo emerge neovim nodejs python rust unzip ripgrep fzf
 ```
 
 **Termux:**
@@ -48,4 +57,16 @@ pkg install neovim git clang unzip nodejs python python-pip rust ripgrep fzf
 
 ```sh
 git clone https://github.com/ReStranger/re-nvim.git ~/.config/nvim && nvim -c "MasonInstallAll"
+```
+
+## Update
+
+**In folder `~/.config/nvim/` make `git pull` and in neovim make `:Lazy sync` and `:MasonInstallAll`**
+
+## Uninstall
+
+```sh
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
+rm -rf ~/.local/state/nvim
 ```
