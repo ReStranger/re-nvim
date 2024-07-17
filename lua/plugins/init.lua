@@ -16,6 +16,13 @@ return {
     end,
   },
   {
+    "mfussenegger/nvim-lint",
+    event = "VeryLazy",
+    config = function()
+      require "configs.lint"
+    end,
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
@@ -26,7 +33,10 @@ return {
         "html-lsp",
         "css-lsp",
         "prettierd",
+        "eslint-lsp",
+        "eslint_d",
         "typescript-language-server",
+        "js-debug-adapter",
         -- c/cpp stuff
         "clangd", --x86_64 only. also install in you $PATH
         "clang-format",
@@ -36,6 +46,7 @@ return {
         "pyright",
         "black",
         "ruff-lsp",
+        "mypy",
         "debugpy",
         -- bash stuff
         "bash-language-server",
@@ -150,6 +161,14 @@ return {
     event = "BufReadPost",
     config = function()
       require "configs.ufo"
+    end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("todo-comments").setup()
     end,
   },
   {

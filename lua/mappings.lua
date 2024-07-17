@@ -35,7 +35,18 @@ map("i", "<C-x>", function()
 end, { expr = true, silent = true, desc = "Codeium Clear" })
 
 -- DEBUGGER
-map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "DAP Toggle Breakpoint" })
+map("n", "<leader>db", function()
+  require("dap").toggle_breakpoint()
+end, { desc = "DAP Toggle Breakpoint" })
+
+map("n", "<leader>ds", function()
+  require("dap").continue()
+end, { desc = "DAP Start" })
+
+map("n", "<leader>dn", function()
+  require("dap").step_over()
+end, { desc = "DAP Step Over" })
+
 map("n", "<leader>dus", function()
   local widgets = require "dap.ui.widgets"
   local sidebar = widgets.sidebar(widgets.scopes)
@@ -45,6 +56,6 @@ map("n", "<leader>dpr", function()
   require("dap-python").test_method()
 end, { desc = "DAP Python test method" })
 
-map("n", "<leader>rcu", function()
+map("n", "<leader>dcu", function()
   require("crates").upgrade_all_crates()
 end, { desc = "DAP Update crates" })
