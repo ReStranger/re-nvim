@@ -55,6 +55,8 @@ return {
         -- nix
         "rnix-lsp",
         "nixpkgs-fmt",
+        -- hyprlang
+        "hyprls",
       },
     },
   },

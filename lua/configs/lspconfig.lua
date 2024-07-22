@@ -14,6 +14,7 @@ local servers = {
   "bashls",
   "rnix",
   "marksman",
+  "hyprls",
 }
 
 -- lsps with default config
@@ -64,6 +65,20 @@ lspconfig.tsserver.setup {
     OrganizeImports = {
       organize_imports,
       description = "Organize Imports",
+    },
+  },
+}
+lspconfig.cssls.setup {
+  settings = {
+    css = {
+      lint = {
+        unknownAtRules = "ignore",
+      },
+    },
+    scss = {
+      lint = {
+        unknownAtRules = "ignore",
+      },
     },
   },
 }

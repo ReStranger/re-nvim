@@ -12,15 +12,16 @@
 
 - [neovim](https://neovim.io/)>=0.10
 - [nodejs](https://nodejs.org/en/)
-- `rust`
-- `python3`
+- [rust](https://www.rust-lang.org/)
+- [python3](https://www.python.org/)
 - `unzip`
 - `gcc` or `clang`
 
 **Опционально:**
 
-- `ripgrep`
-- `fzf`
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [fzf](https://github.com/junegunn/fzf)
+- [go](https://go.dev/) for hypr-ls only
 
 **ArchLinux:**
 
