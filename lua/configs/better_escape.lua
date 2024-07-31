@@ -6,6 +6,11 @@ require("better_escape").setup {
         j = "<Esc>",
       },
     },
+    v = {
+      j = {
+        v = "{Esc}",
+      },
+    },
     c = {
       j = {
         j = "<Esc>",

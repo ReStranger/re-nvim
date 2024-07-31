@@ -1,4 +1,5 @@
 <h1 style="text-align: center;">RE:NeoVim</h1>
+<hr>
 
 ## О конфиге
 
