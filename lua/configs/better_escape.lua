@@ -5,6 +5,9 @@ require("better_escape").setup {
       j = {
         j = "<Esc>",
       },
+      о = {
+        о = "<Esc>",
+      },
     },
     v = {
       j = {
