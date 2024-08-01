@@ -281,6 +281,9 @@ return {
     "mrcjkb/rustaceanvim",
     ft = { "rust" },
     version = "^4",
+    config = function()
+      require "configs.rustaceanvim"
+    end,
   },
   {
     "saecki/crates.nvim",
