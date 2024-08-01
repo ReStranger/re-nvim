@@ -6,7 +6,7 @@ local M = {}
 
 M.base46 = {
   -- THEME SETTINGS
-  theme = "gruvbox",
+  theme = "yoru",
   theme_toggle = { "catppuccin", "github_light" },
   transparency = false,
 
