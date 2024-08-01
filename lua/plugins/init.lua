@@ -182,6 +182,12 @@ return {
     end,
   },
   { "3rd/image.nvim" },
+  {
+    "barrett-ruth/live-server.nvim",
+    build = "pnpm add -g live-server",
+    cmd = { "LiveServerStart", "LiveServerStop" },
+    config = true,
+  },
   -- AI
   {
     "Exafunction/codeium.vim",
