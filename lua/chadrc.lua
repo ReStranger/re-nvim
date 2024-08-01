@@ -6,9 +6,9 @@ local M = {}
 
 M.base46 = {
   -- THEME SETTINGS
-  theme = "catppuccin",
+  theme = "gruvbox",
   theme_toggle = { "catppuccin", "github_light" },
-  transparency = true,
+  transparency = false,
 
   -- HILIGHT SETTINGS
   hl_add = {},
@@ -33,10 +33,10 @@ M.ui = {
 
   ------------------------------- nvchad_ui modules -----------------------------
   statusline = {
-    theme = "minimal", -- default/vscode/vscode_colored/minimal
+    theme = "default", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "block",
+    separator_style = "default",
     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
     modules = nil,
   },
