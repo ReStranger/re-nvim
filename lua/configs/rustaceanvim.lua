@@ -16,6 +16,9 @@ vim.g.rustaceanvim = {
         checkOnSave = {
           command = "clippy",
         },
+        diagnostics = {
+          enable = true,
+        },
       },
     },
   },
