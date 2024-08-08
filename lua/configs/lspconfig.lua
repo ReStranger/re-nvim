@@ -8,6 +8,7 @@ local servers = {
   "html",
   "cssls",
   "tsserver",
+  "eslint",
   "clangd",
   "pyright",
   "ruff_lsp",

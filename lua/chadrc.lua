@@ -8,7 +8,7 @@ M.base46 = {
   -- THEME SETTINGS
   theme = "catppuccin",
   theme_toggle = { "catppuccin", "github_light" },
-  transparency = false,
+  transparency = true,
 
   -- HILIGHT SETTINGS
   hl_add = {},
