@@ -24,69 +24,21 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        -- lua stuff
-        "lua-language-server", --x86_64 only, also install in you $PATH
-        "stylua", --x86_64 only, also install in you $PATH
-        -- web dev stuff
-        "html-lsp",
-        "css-lsp",
-        "prettierd",
-        "eslint-lsp",
-        "eslint_d",
-        "typescript-language-server",
-        "js-debug-adapter",
-        -- c/cpp stuff
-        "clangd", --x86_64 only, also install in you $PATH
-        "clang-format",
-        -- rust
-        "rust-analyzer", --x86_64 only, also install in you $PATH
-        -- python stuff
-        "pyright",
-        "black",
-        "ruff-lsp",
-        "mypy",
-        "debugpy",
-        -- bash stuff
-        "bash-language-server",
-        -- markdown stuff
-        "marksman",
-        -- nix
-        "rnix-lsp",
-        "nixpkgs-fmt",
-        -- hyprlang
-        "hyprls",
-      },
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
+    config = function()
+      require "configs.mason"
+    end,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "vimdoc",
-        "lua",
-        "html",
-        "css",
-        "scss",
-        "javascript",
-        "typescript",
-        "tsx",
-        "c",
-        "cpp",
-        "rust",
-        "toml",
-        "python",
-        "bash",
-        "dockerfile",
-        "markdown",
-        "markdown_inline",
-        "hyprlang",
-        "nix",
-      },
-    },
+    config = function()
+      require "configs.treesitter"
+    end,
   },
   -- UX and fixes
   {

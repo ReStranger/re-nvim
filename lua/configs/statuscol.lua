@@ -5,7 +5,11 @@ statuscol.setup {
   segments = {
     { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
     {
-      sign = { namespace = { "Diagnostic" }, maxwidth = 1, auto = true },
+      sign = { namespace = { "diagnostic/signs" }, maxwidth = 1, auto = true },
+      click = "v:lua.ScSa",
+    },
+    {
+      sign = { namespace = { "gitsigns" }, maxwidth = 1, auto = true },
       click = "v:lua.ScSa",
     },
     { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
