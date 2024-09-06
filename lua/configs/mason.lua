@@ -16,7 +16,7 @@ mason_lspconfig.setup {
     -- web lsp
     "html",
     "cssls",
-    "tsserver",
+    "ts_ls",
     -- c/cpp lsp
     "clangd", --x86_64 only, also install in you $PATH
     -- rust lsp

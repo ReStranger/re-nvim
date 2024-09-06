@@ -8,7 +8,7 @@ local servers = {
   "lua_ls",
   "html",
   "cssls",
-  "tsserver",
+  "ts_ls",
   "clangd",
   "pyright",
   "ruff_lsp",
@@ -56,7 +56,7 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   init_options = {
     preferences = {
       disableSuggestions = true,
