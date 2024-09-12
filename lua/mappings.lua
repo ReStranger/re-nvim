@@ -33,6 +33,9 @@ end, { expr = true, silent = true, desc = "Codeium Previous Completions" })
 map("i", "<C-x>", function()
   return vim.fn["codeium#Clear"]()
 end, { expr = true, silent = true, desc = "Codeium Clear" })
+map("n", "<leader>ce", function()
+  return vim.fn["codeium#Chat"]()
+end, { expr = true, silent = true, desc = "Codeium Chat" })
 
 -- DEBUGGER
 map("n", "<leader>db", function()
