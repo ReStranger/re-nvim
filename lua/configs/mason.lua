@@ -29,7 +29,7 @@ mason_lspconfig.setup {
     -- markdown stuff
     "marksman",
     -- nix lsp
-    "rnix",
+    "nixd",
     -- hyprlang
     "hyprls",
   },

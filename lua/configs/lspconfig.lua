@@ -13,7 +13,7 @@ local servers = {
   "pyright",
   "ruff_lsp",
   "bashls",
-  "rnix",
+  "nixd",
   "marksman",
   "hyprls",
 }
