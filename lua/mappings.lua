@@ -1,8 +1,28 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
+local api = vim.api
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
+
+-- Отключение стрелок в нормальном режиме
+api.nvim_set_keymap("n", "<Up>", "<NOP>", { noremap = true, silent = true })
+api.nvim_set_keymap("n", "<Down>", "<NOP>", { noremap = true, silent = true })
+api.nvim_set_keymap("n", "<Left>", "<NOP>", { noremap = true, silent = true })
+api.nvim_set_keymap("n", "<Right>", "<NOP>", { noremap = true, silent = true })
+
+-- Отключение стрелок в режиме вставки
+api.nvim_set_keymap("i", "<Up>", "<NOP>", { noremap = true, silent = true })
+api.nvim_set_keymap("i", "<Down>", "<NOP>", { noremap = true, silent = true })
+api.nvim_set_keymap("i", "<Left>", "<NOP>", { noremap = true, silent = true })
+api.nvim_set_keymap("i", "<Right>", "<NOP>", { noremap = true, silent = true })
+
+-- Отключение Backspace в нормальном режиме
+api.nvim_set_keymap("n", "<BS>", "<NOP>", { noremap = true, silent = true })
+-- Отключение Backspace в режиме вставки
+api.nvim_set_keymap("i", "<BS>", "<NOP>", { noremap = true, silent = true })
+-- Отключение Backspace в визуальном режиме
+api.nvim_set_keymap("v", "<BS>", "<NOP>", { noremap = true, silent = true })
 
 -- TMUX
 map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Left" })
@@ -62,3 +82,16 @@ end, { desc = "DAP Python test method" })
 map("n", "<leader>dcu", function()
   require("crates").upgrade_all_crates()
 end, { desc = "DAP Update crates" })
+
+-- Keyboard users
+map("n", "<C-t>", function()
+  require("menu").open "default"
+end, {})
+
+-- mouse users + nvimtree users!
+map("n", "<RightMouse>", function()
+  vim.cmd.exec '"normal! \\<RightMouse>"'
+
+  local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
+  require("menu").open(options, { mouse = true })
+end, {})

@@ -11,19 +11,29 @@ M.base46 = {
   transparency = true,
 
   -- HILIGHT SETTINGS
-  hl_add = {},
+  hl_add = {
+    WinBar = { bg = "NONE" },
+    WinBarNC = { bg = "NONE" },
+  },
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
+    TbBufOn = { italic = true, fg = "red" },
+    TelescopeSelection = { italic = true },
   },
   integrations = {},
 }
 M.ui = {
   -- CMP(CODE TIPS) SETTINGS
   cmp = {
-    icons = true,
+    -- icons = true,
+    icons_left = true,
     lspkind_text = true,
     style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+    format_colors = {
+      tailwind = false, -- will work for css lsp too
+      icon = "󱓻",
+    },
     border_color = "blue",
     selected_item_bg = "colored",
   },
@@ -36,7 +46,7 @@ M.ui = {
     theme = "default", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "arrow",
+    separator_style = "default",
     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
     modules = nil,
   },
@@ -70,10 +80,15 @@ M.ui = {
     },
   },
   lsp = { signature = true },
+  cheatsheet = {
+    theme = "grid", -- simple/grid
+    excluded_groups = { "terminal (t)", "autopairs", "Nvim", "Opens" }, -- can add group name or with mode
+  },
 
   term = {
     hl = "Normal:term,WinSeparator:WinSeparator",
-    sizes = { sp = 0.3, vsp = 0.2 },
+    winopts = { number = false, relativenumber = false },
+    sizes = { sp = 0.3, vsp = 0.2, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
     float = {
       relative = "editor",
       row = 0.3,
