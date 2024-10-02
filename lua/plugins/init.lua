@@ -74,8 +74,8 @@ return {
       local animate = require "mini.animate"
       return {
         cursor = {
-          enable = false, -- if u use neovide or alacritty-smooth-cursor
-          -- enable = true,
+          -- enable = false, -- if u use neovide or alacritty-smooth-cursor
+          enable = true,
         },
         resize = {
           enable = false,
@@ -94,6 +94,13 @@ return {
         },
       }
     end,
+  },
+  {
+    "Bekaboo/dropbar.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
   },
   {
     "max397574/better-escape.nvim",
