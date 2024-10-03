@@ -69,7 +69,10 @@ lspconfig.ts_ls.setup {
     },
   },
 }
+local cap = vim.lsp.protocol.make_client_capabilities()
+cap.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.cssls.setup {
+  capabilities = cap,
   settings = {
     css = {
       lint = {
