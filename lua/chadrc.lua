@@ -47,8 +47,13 @@ M.ui = {
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
     separator_style = "default",
-    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
-    modules = nil,
+    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "AI", "cwd", "cursor" },
+    modules = {
+      AI = function()
+        local ai_status = vim.api.nvim_call_function("codeium#GetStatusString", {})
+        return "󰚩" .. ai_status .. " "
+      end,
+    },
   },
   tabufline = {
     enabled = true,
