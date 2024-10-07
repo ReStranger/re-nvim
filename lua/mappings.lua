@@ -17,12 +17,7 @@ api.nvim_set_keymap("i", "<Down>", "<NOP>", { noremap = true, silent = true })
 api.nvim_set_keymap("i", "<Left>", "<NOP>", { noremap = true, silent = true })
 api.nvim_set_keymap("i", "<Right>", "<NOP>", { noremap = true, silent = true })
 
--- Отключение Backspace в нормальном режиме
-api.nvim_set_keymap("n", "<BS>", "<NOP>", { noremap = true, silent = true })
--- Отключение Backspace в режиме вставки
-api.nvim_set_keymap("i", "<BS>", "<NOP>", { noremap = true, silent = true })
--- Отключение Backspace в визуальном режиме
-api.nvim_set_keymap("v", "<BS>", "<NOP>", { noremap = true, silent = true })
+map("n", "<leader>lm", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- TMUX
 map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Left" })
