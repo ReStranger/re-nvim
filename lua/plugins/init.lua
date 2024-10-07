@@ -75,7 +75,7 @@ return {
       return {
         cursor = {
           -- enable = false, -- if u use neovide or alacritty-smooth-cursor
-          enable = true,
+          enable = false,
         },
         resize = {
           enable = false,
