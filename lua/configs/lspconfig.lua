@@ -75,12 +75,20 @@ lspconfig.cssls.setup {
   capabilities = cap,
   settings = {
     css = {
+      validate = false,
+      lint = {
+        unknownAtRules = "ignore",
+      },
+    },
+    less = {
+      validate = true,
       lint = {
         unknownAtRules = "ignore",
       },
     },
     scss = {
       lint = {
+        validate = false,
         unknownAtRules = "ignore",
       },
     },
