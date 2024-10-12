@@ -75,7 +75,7 @@ return {
       return {
         cursor = {
           -- enable = false, -- if u use neovide or alacritty-smooth-cursor
-          enable = false,
+          enable = true,
         },
         resize = {
           enable = false,
@@ -93,6 +93,13 @@ return {
           },
         },
       }
+    end,
+  },
+  {
+    "tamton-aquib/flirt.nvim",
+    event = "VeryLazy",
+    config = function()
+      require "configs.flirt"
     end,
   },
   {
