@@ -103,7 +103,6 @@ M.nvdash = {
     -- { "  Bookmarks", "Spc m a", "Telescope marks" },
     -- { "  Themes", "Spc t h", "Telescope themes" },
     -- { "  Mappings", "Spc c h", "NvCheatsheet" },
-    { txt = "  Lazy menu", keys = "Spc l m", cmd = "Lazy" },
     { txt = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
     { txt = "  Recent Files", keys = "Spc f o", cmd = "Telescope oldfiles" },
     { txt = "󰈭  Find Word", keys = "Spc f w", cmd = "Telescope live_grep" },
@@ -111,7 +110,6 @@ M.nvdash = {
     { txt = "󱥚  Themes", keys = "Spc t h", cmd = ":lua require('nvchad.themes').open()" },
     { txt = "  Mappings", keys = "Spc c h", cmd = "NvCheatsheet" },
     { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
-
     {
       txt = function()
         local stats = require("lazy").stats()
@@ -121,7 +119,6 @@ M.nvdash = {
       hl = "NvDashLazy",
       no_gap = true,
     },
-
     { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
   },
 }

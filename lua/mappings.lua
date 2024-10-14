@@ -17,8 +17,6 @@ api.nvim_set_keymap("i", "<Down>", "<NOP>", { noremap = true, silent = true })
 api.nvim_set_keymap("i", "<Left>", "<NOP>", { noremap = true, silent = true })
 api.nvim_set_keymap("i", "<Right>", "<NOP>", { noremap = true, silent = true })
 
-map("n", "<leader>lm", "<cmd>Lazy<cr>", { desc = "Lazy" })
-
 -- TMUX
 map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Left" })
 map("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux Down" })
