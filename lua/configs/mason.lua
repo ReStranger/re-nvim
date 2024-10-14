@@ -33,6 +33,7 @@ mason_lspconfig.setup {
     -- hyprlang
     "hyprls",
   },
+  automatic_installation = false,
 }
 mason_tool_installer.setup {
   ensure_installed = {
@@ -51,4 +52,5 @@ mason_tool_installer.setup {
     -- nix stuff
     "nixpkgs-fmt",
   },
+  automatic_installation = false,
 }
