@@ -65,7 +65,7 @@ M.ui = {
 
 -- nvdash (dashboard)
 M.nvdash = {
-  load_on_startup = true,
+  load_on_startup = false,
   -- select you favorite dash :3
   header = {
     -- "███╗  ██╗███████╗ █████╗ ██╗   ██╗██╗███╗   ███╗",
