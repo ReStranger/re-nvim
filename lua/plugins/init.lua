@@ -95,13 +95,13 @@ return {
       }
     end,
   },
-  {
-    "tamton-aquib/flirt.nvim",
-    event = "VeryLazy",
-    config = function()
-      require "configs.flirt"
-    end,
-  },
+  -- {
+  --   "tamton-aquib/flirt.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require "configs.flirt"
+  --   end,
+  -- },
   {
     "Bekaboo/dropbar.nvim",
     lazy = false,
