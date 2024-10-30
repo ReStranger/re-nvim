@@ -28,8 +28,6 @@ mason_lspconfig.setup {
     "bashls",
     -- markdown stuff
     "marksman",
-    -- nix lsp
-    "nixd",
     -- hyprlang
     "hyprls",
   },
