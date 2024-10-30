@@ -65,23 +65,9 @@ M.ui = {
 
 -- nvdash (dashboard)
 M.nvdash = {
-  load_on_startup = false,
+  load_on_startup = true,
   -- select you favorite dash :3
   header = {
-    -- "███╗  ██╗███████╗ █████╗ ██╗   ██╗██╗███╗   ███╗",
-    -- "████╗ ██║██╔════╝██╔══██╗██║   ██║██║████╗ ████║",
-    -- "██╔██╗██║█████╗  ██║  ██║╚██╗ ██╔╝██║██╔████╔██║",
-    -- "██║╚████║██╔══╝  ██║  ██║ ╚████╔╝ ██║██║╚██╔╝██║",
-    -- "██║ ╚███║███████╗╚█████╔╝  ╚██╔╝  ██║██║ ╚═╝ ██║",
-    -- "╚═╝  ╚══╝╚══════╝ ╚════╝    ╚═╝   ╚═╝╚═╝     ╚═╝",
-    -- "                                                ",
-    -- "██████╗ ███████╗   ███╗   ██╗██╗   ██╗██╗███╗   ███╗",
-    -- "██╔══██╗██╔════╝██╗████╗  ██║██║   ██║██║████╗ ████║",
-    -- "██████╔╝█████╗  ╚═╝██╔██╗ ██║██║   ██║██║██╔████╔██║",
-    -- "██╔══██╗██╔══╝  ██╗██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║",
-    -- "██║  ██║███████╗╚═╝██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║",
-    -- "╚═╝  ╚═╝╚══════╝   ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝",
-    --
     " ██▀███  ▓█████ ▒▓▒  ███▄    █ ██▒   █▓ ██▓ ███▄ ▄███▓",
     "▓██ ▒ ██▒▓█   ▀  ▒   ██ ▀█   █▓██░   █▒▓██▒▓██▒▀█▀ ██▒",
     "▓██ ░▄█ ▒▒███       ▓██  ▀█ ██▒▓██  █▒░▒██▒▓██    ▓██░",
@@ -97,10 +83,10 @@ M.nvdash = {
   },
 
   buttons = {
-    { txt = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
+    { txt = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
     { txt = "  Recent Files", keys = "Spc f o", cmd = "Telescope oldfiles" },
     { txt = "󰈭  Find Word", keys = "Spc f w", cmd = "Telescope live_grep" },
-    { txt = "  Bookmarks", keys = "Spc m a", cmd = "Telescope marks" },
+    { txt = "󰃀  Bookmarks", keys = "Spc m a", cmd = "Telescope marks" },
     { txt = "󱥚  Themes", keys = "Spc t h", cmd = ":lua require('nvchad.themes').open()" },
     { txt = "  Mappings", keys = "Spc c h", cmd = "NvCheatsheet" },
     { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
