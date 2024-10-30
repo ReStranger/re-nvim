@@ -17,7 +17,6 @@ local servers = {
   "marksman",
   "hyprls",
 }
-
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

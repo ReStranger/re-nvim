@@ -40,7 +40,7 @@ return {
       require "configs.treesitter"
     end,
   },
-  -- UX and fixes
+  -- UI/UX and fixes
   {
     "christoomey/vim-tmux-navigator",
     cmd = {
@@ -95,6 +95,7 @@ return {
       }
     end,
   },
+  -- WARN: breack pupap menu by telescope and dressing
   -- {
   --   "tamton-aquib/flirt.nvim",
   --   event = "VeryLazy",
@@ -102,6 +103,17 @@ return {
   --     require "configs.flirt"
   --   end,
   -- },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    config = function()
+      require "configs.noice"
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
   {
     "Bekaboo/dropbar.nvim",
     lazy = false,
