@@ -5,7 +5,11 @@ statuscol.setup {
   segments = {
     { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
     {
-      sign = { namespace = { "diagnostic/signs" }, maxwidth = 1, auto = true },
+      sign = { name = { ".*" }, maxwidth = 1, colwidth = 1, wrap = true, auto = true },
+      click = "v:lua.ScSa",
+    },
+    {
+      sign = { namespace = { "diagnostic/signs" }, maxwidth = 1 },
       click = "v:lua.ScSa",
     },
     {
@@ -13,10 +17,6 @@ statuscol.setup {
       click = "v:lua.ScSa",
     },
     { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
-    {
-      sign = { name = { ".*" }, maxwidth = 1, colwidth = 1, wrap = true },
-      click = "v:lua.ScSa",
-    },
   },
   clickmod = "c", -- modifier used for certain actions in the builtin clickhandlers:
   clickhandlers = { -- builtin click handlers
