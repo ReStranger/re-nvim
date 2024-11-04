@@ -1,6 +1,3 @@
-require("notify").setup {
-  background_colour = "#000000",
-}
 require("noice").setup {
   cmdline = {
     enabled = true, -- enables the Noice cmdline UI

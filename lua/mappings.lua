@@ -33,6 +33,9 @@ map("n", "K", function()
     vim.lsp.buf.hover()
   end
 end, { desc = "UFO LSP hover" })
+map("n", "<leader>tt", function()
+  require("base46").toggle_transparency()
+end)
 -- AI
 map("i", "<C-g>", function()
   return vim.fn["codeium#Accept"]()
