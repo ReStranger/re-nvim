@@ -159,7 +159,7 @@ return {
       require("render-markdown").setup {}
     end,
   },
-  { "3rd/image.nvim" },
+  -- { "3rd/image.nvim" },
   {
     "barrett-ruth/live-server.nvim",
     build = "pnpm add -g live-server",
