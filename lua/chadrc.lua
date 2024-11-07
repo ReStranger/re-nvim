@@ -6,9 +6,9 @@ local M = {}
 
 M.base46 = {
   -- THEME SETTINGS
-  theme = "catppuccin",
-  theme_toggle = { "catppuccin", "github_light" },
-  transparency = true,
+  theme = "onedark",
+  theme_toggle = { "onedark", "github_light" },
+  transparency = false,
 
   -- HILIGHT SETTINGS
   hl_add = {
@@ -16,12 +16,17 @@ M.base46 = {
     WinBarNC = { bg = "NONE" },
   },
   hl_override = {
+    TSStatement = { italic = true },
+    TSIdentifier = { italic = true },
     Comment = { italic = true },
     ["@comment"] = { italic = true },
     TbBufOn = { italic = true, fg = "red" },
     TelescopeSelection = { italic = true },
+    FoldColumn = { bg = "none" },
+    DiffAdd = { fg = "green" },
+    DiffDelete = { fg = "red" },
   },
-  integrations = {},
+  integrations = { "dap", "hop" },
 }
 M.ui = {
   -- CMP(CODE TIPS) SETTINGS

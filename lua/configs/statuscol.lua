@@ -3,19 +3,12 @@ local builtin = require "statuscol.builtin"
 statuscol.setup {
   relculright = true,
   segments = {
-    { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+    { text = { builtin.foldfunc }, click = "v:lua.ScFa", auto = true },
+    { text = { "%s" }, click = "v:lua.ScSa" },
     {
-      sign = { namespace = { "diagnostic/signs" }, maxwidth = 1, auto = true },
-      click = "v:lua.ScSa",
-    },
-    {
-      sign = { namespace = { "gitsigns" }, maxwidth = 1, auto = true },
-      click = "v:lua.ScSa",
-    },
-    { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
-    {
-      sign = { name = { ".*" }, maxwidth = 1, colwidth = 1, wrap = true },
-      click = "v:lua.ScSa",
+      text = { builtin.lnumfunc, " " },
+      condition = { true, builtin.not_empty },
+      click = "v:lua.ScLa",
     },
   },
   clickmod = "c", -- modifier used for certain actions in the builtin clickhandlers:

@@ -132,6 +132,7 @@ return {
     "luukvbaal/statuscol.nvim",
     lazy = false,
     config = function()
+      dofile(vim.g.base46_cache .. "statusline")
       require "configs.statuscol"
     end,
   },
@@ -208,9 +209,9 @@ return {
   -- DEBUGGER
   {
     "mfussenegger/nvim-dap",
-    -- config = function(_, opts)
-    -- require "configs.dap"
-    -- end,
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "dap")
+    end,
   },
   {
     "rcarriga/nvim-dap-ui",
