@@ -11,9 +11,10 @@ local servers = {
   "ts_ls",
   "clangd",
   "pyright",
-  "ruff_lsp",
+  "ruff",
   "bashls",
   "nixd",
+  "rnix",
   "marksman",
   "hyprls",
 }

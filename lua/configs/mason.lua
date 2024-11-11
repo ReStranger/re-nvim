@@ -30,6 +30,8 @@ mason_lspconfig.setup {
     "marksman",
     -- hyprlang
     "hyprls",
+    -- nix stuff
+    "rnix",
   },
   automatic_installation = false,
 }

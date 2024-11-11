@@ -6,8 +6,8 @@ local M = {}
 
 M.base46 = {
   -- THEME SETTINGS
-  theme = "onedark",
-  theme_toggle = { "onedark", "github_light" },
+  theme = "catppuccin",
+  theme_toggle = { "catppuccin", "github_light" },
   transparency = false,
 
   -- HILIGHT SETTINGS
@@ -71,41 +71,41 @@ M.ui = {
 -- nvdash (dashboard)
 M.nvdash = {
   load_on_startup = true,
-  -- select you favorite dash :3
-  header = {
-    " ██▀███  ▓█████ ▒▓▒  ███▄    █ ██▒   █▓ ██▓ ███▄ ▄███▓",
-    "▓██ ▒ ██▒▓█   ▀  ▒   ██ ▀█   █▓██░   █▒▓██▒▓██▒▀█▀ ██▒",
-    "▓██ ░▄█ ▒▒███       ▓██  ▀█ ██▒▓██  █▒░▒██▒▓██    ▓██░",
-    "▒██▀▀█▄  ▒▓█  ▄ ▒▓▒ ▓██▒  ▐▌██▒ ▒██ █░░░██░▒██    ▒██ ",
-    "░██▓ ▒██▒░▒████ ░▒  ▒██░   ▓██░  ▒▀█░  ░██░▒██▒   ░██▒",
-    "░ ▒▓ ░▒▓░░░ ▒░  ░   ░ ▒░   ▒ ▒   ░ ▐░  ░▓  ░ ▒░   ░  ░",
-    "  ░▒ ░ ▒░ ░ ░    ░  ░ ░░   ░ ▒░  ░ ░░   ▒ ░░  ░      ░",
-    "  ░░   ░    ░    ░     ░   ░ ░     ░░   ▒ ░░      ░   ",
-    "   ░        ░                ░      ░   ░         ░   ",
-    "                                   ░                  ",
-    "                                                      ",
-    "                    𝓑𝔂 𝓡𝓮𝓢𝓽𝓻𝓪𝓷𝓰𝓮𝓻                     ",
-  },
-
-  buttons = {
-    { txt = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
-    { txt = "  Recent Files", keys = "Spc f o", cmd = "Telescope oldfiles" },
-    { txt = "󰈭  Find Word", keys = "Spc f w", cmd = "Telescope live_grep" },
-    { txt = "󰃀  Bookmarks", keys = "Spc m a", cmd = "Telescope marks" },
-    { txt = "󱥚  Themes", keys = "Spc t h", cmd = ":lua require('nvchad.themes').open()" },
-    { txt = "  Mappings", keys = "Spc c h", cmd = "NvCheatsheet" },
-    { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
-    {
-      txt = function()
-        local stats = require("lazy").stats()
-        local ms = math.floor(stats.startuptime) .. " ms"
-        return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
-      end,
-      hl = "NvDashLazy",
-      no_gap = true,
-    },
-    { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
-  },
+  --   -- select you favorite dash :3
+  --   header = {
+  --     " ██▀███  ▓█████ ▒▓▒  ███▄    █ ██▒   █▓ ██▓ ███▄ ▄███▓",
+  --     "▓██ ▒ ██▒▓█   ▀  ▒   ██ ▀█   █▓██░   █▒▓██▒▓██▒▀█▀ ██▒",
+  --     "▓██ ░▄█ ▒▒███       ▓██  ▀█ ██▒▓██  █▒░▒██▒▓██    ▓██░",
+  --     "▒██▀▀█▄  ▒▓█  ▄ ▒▓▒ ▓██▒  ▐▌██▒ ▒██ █░░░██░▒██    ▒██ ",
+  --     "░██▓ ▒██▒░▒████ ░▒  ▒██░   ▓██░  ▒▀█░  ░██░▒██▒   ░██▒",
+  --     "░ ▒▓ ░▒▓░░░ ▒░  ░   ░ ▒░   ▒ ▒   ░ ▐░  ░▓  ░ ▒░   ░  ░",
+  --     "  ░▒ ░ ▒░ ░ ░    ░  ░ ░░   ░ ▒░  ░ ░░   ▒ ░░  ░      ░",
+  --     "  ░░   ░    ░    ░     ░   ░ ░     ░░   ▒ ░░      ░   ",
+  --     "   ░        ░                ░      ░   ░         ░   ",
+  --     "                                   ░                  ",
+  --     "                                                      ",
+  --     "                    𝓑𝔂 𝓡𝓮𝓢𝓽𝓻𝓪𝓷𝓰𝓮𝓻                     ",
+  --   },
+  --
+  --   buttons = {
+  --     { txt = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
+  --     { txt = "  Recent Files", keys = "Spc f o", cmd = "Telescope oldfiles" },
+  --     { txt = "󰈭  Find Word", keys = "Spc f w", cmd = "Telescope live_grep" },
+  --     { txt = "󰃀  Bookmarks", keys = "Spc m a", cmd = "Telescope marks" },
+  --     { txt = "󱥚  Themes", keys = "Spc t h", cmd = ":lua require('nvchad.themes').open()" },
+  --     { txt = "  Mappings", keys = "Spc c h", cmd = "NvCheatsheet" },
+  --     { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
+  --     {
+  --       txt = function()
+  --         local stats = require("lazy").stats()
+  --         local ms = math.floor(stats.startuptime) .. " ms"
+  --         return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
+  --       end,
+  --       hl = "NvDashLazy",
+  --       no_gap = true,
+  --     },
+  --     { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
+  --   },
 }
 M.term = {
   hl = "Normal:term,WinSeparator:WinSeparator",
