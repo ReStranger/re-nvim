@@ -112,6 +112,9 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
+      config = function()
+        dofile(vim.g.base46_cache .. "notify")
+      end,
     },
   },
   {
