@@ -6,8 +6,8 @@ local M = {}
 
 M.base46 = {
   -- THEME SETTINGS
-  theme = "onedark",
-  theme_toggle = { "onedark", "github_light" },
+  theme = "catppuccin",
+  theme_toggle = { "catppuccin", "github_light" },
   transparency = false,
 
   -- HILIGHT SETTINGS
