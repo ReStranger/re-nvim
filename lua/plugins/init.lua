@@ -28,6 +28,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
+      "jay-babu/mason-nvim-dap.nvim",
     },
     config = function()
       require "configs.mason"
@@ -112,9 +113,6 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
-      config = function()
-        dofile(vim.g.base46_cache .. "notify")
-      end,
     },
   },
   {
