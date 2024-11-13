@@ -1,5 +1,3 @@
-local mason_lspconfig = require "mason-lspconfig"
-local mason_tool_installer = require "mason-tool-installer"
 require("mason").setup {
   ui = {
     icons = {
@@ -9,7 +7,7 @@ require("mason").setup {
     },
   },
 }
-mason_lspconfig.setup {
+require("mason-lspconfig").setup {
   ensure_installed = {
     -- lua stuff
     "lua_ls", --x86_64 only, also install in you $PATH
@@ -23,7 +21,7 @@ mason_lspconfig.setup {
     "rust_analyzer", --x86_64 only, also install in you $PATH
     -- python lsp
     "pyright",
-    "ruff_lsp",
+    "ruff",
     -- bash stuff
     "bashls",
     -- markdown stuff
@@ -33,9 +31,9 @@ mason_lspconfig.setup {
     -- nix stuff
     "rnix",
   },
-  automatic_installation = false,
+  automatic_installation = true,
 }
-mason_tool_installer.setup {
+require("mason-tool-installer").setup {
   ensure_installed = {
     -- lua stuff
     "stylua", --x86_64 only, also install in you $PATH
@@ -52,5 +50,9 @@ mason_tool_installer.setup {
     -- nix stuff
     "nixpkgs-fmt",
   },
-  automatic_installation = false,
+  automatic_installation = true,
+}
+require("mason-nvim-dap").setup {
+  ensure_installed = { "python", "js" },
+  automatic_installation = true,
 }
