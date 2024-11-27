@@ -16,10 +16,17 @@ M.base46 = {
     WinBarNC = { bg = "NONE" },
   },
   hl_override = {
-    TSStatement = { italic = true },
-    TSIdentifier = { italic = true },
-    Comment = { italic = true },
+    ["@attribute.builtin"] = { italic = true },
     ["@comment"] = { italic = true },
+    ["@function"] = { italic = true },
+    ["@function.builtin"] = { italic = true },
+    ["@function.call"] = { italic = true },
+    ["@function.method"] = { italic = true },
+    ["@function.method.call"] = { italic = true },
+    ["@include"] = { italic = true },
+    ["@module"] = { italic = true },
+    ["@variable.parameter"] = { italic = true },
+    Comment = { italic = true },
     TbBufOn = { italic = true, fg = "red" },
     TelescopeSelection = { italic = true },
     FoldColumn = { bg = "none" },
@@ -51,7 +58,7 @@ M.ui = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "round",
+    separator_style = "block",
     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
     modules = nil,
   },
