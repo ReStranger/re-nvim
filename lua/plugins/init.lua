@@ -43,6 +43,10 @@ return {
   },
   -- UI/UX and fixes
   {
+    "eandrju/cellular-automaton.nvim",
+    cmd = { "CellularAutomaton" },
+  },
+  {
     "christoomey/vim-tmux-navigator",
     cmd = {
       "TmuxNavigateLeft",
