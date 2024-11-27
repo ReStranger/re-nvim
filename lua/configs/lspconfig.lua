@@ -94,3 +94,24 @@ lspconfig.cssls.setup {
     },
   },
 }
+lspconfig.nixd.setup = {
+  cmd = { "nixd", "--inlay-hints=true" },
+  settings = {
+    nixd = {
+      nixpkgs = {
+        expr = "import <nixpkgs> { }",
+      },
+      formatting = {
+        command = { "nixfmt" },
+      },
+      options = {
+        nixos = {
+          expr = '(builtins.getFlake "/home/restranger/.config/nix").nixosConfigurations.nixos.options',
+        },
+        home_manager = {
+          expr = '(builtins.getFlake "/home/restranger/.config/nix").homeConfigurations.restranger.options',
+        },
+      },
+    },
+  },
+}

@@ -106,6 +106,18 @@ require("noice").setup {
       },
       opts = { skip = true },
     },
+    {
+      filter = {
+        find = 'Обнаружена ошибка при обработке WinResized Автокоманды для "*"',
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        find = "Error executing lua callback: ...ger/.local/share/nvim/lazy/ui/lua/nvchad/nvdash/init.lua:128: Column value outside range",
+      },
+      opts = { skip = true },
+    },
   },
   lsp = {
     progress = {

@@ -211,6 +211,7 @@ return {
       require("nvim-ts-autotag").setup {}
     end,
   },
+
   -- DEBUGGER
   {
     "mfussenegger/nvim-dap",
@@ -287,5 +288,11 @@ return {
     init = function()
       vim.g.rustfmt_autosave = 1
     end,
+  },
+
+  -- JS/TS
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   },
 }
