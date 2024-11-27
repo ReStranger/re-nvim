@@ -14,7 +14,6 @@ local servers = {
   "ruff",
   "bashls",
   "nixd",
-  "rnix",
   "marksman",
   "hyprls",
 }
