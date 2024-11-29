@@ -14,6 +14,8 @@ opt.shiftwidth = 2
 opt.incsearch = true
 g.dap_virtual_text = true
 g.codeium_enabled = true
+opt.list = true
+opt.listchars = { tab = "• ", trail = "·", nbsp = "␣" }
 api.nvim_create_user_command("Q", "q", {})
 
 vim.filetype.add {
