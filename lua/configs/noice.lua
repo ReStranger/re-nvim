@@ -114,7 +114,13 @@ require("noice").setup {
     },
     {
       filter = {
-        find = "Error executing lua callback: ...ger/.local/share/nvim/lazy/ui/lua/nvchad/nvdash/init.lua:128: Column value outside range",
+        find = "Error executing lua callback: ...ger/.local/share/nvim/lazy/ui/lua/nvchad/nvdash/init.lua",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        find = 'Обнаружена ошибка при обработке VimResized Автокоманды для "*"',
       },
       opts = { skip = true },
     },
