@@ -32,6 +32,15 @@ require("lazy").setup({
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
+    {
+      "L3MON4D3/LuaSnip",
+      dependencies = "rafamadriz/friendly-snippets",
+      opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+      config = function(_, opts)
+        require("luasnip").config.set_config(opts)
+        require("configs.luasnip")
+      end,
+    },
       {
         "windwp/nvim-autopairs",
         opts = {
@@ -59,6 +68,14 @@ require("lazy").setup({
     },
     config = function()
       require("configs.nvim-cmp")
+    end,
+  },
+  {
+    "akinsho/bufferline.nvim",
+		event = { "BufReadPost", "BufNewFile" },
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require("bufferline")
     end,
   },
 })
