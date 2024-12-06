@@ -14,4 +14,11 @@ require("telescope").setup({
   map("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" }),
   map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" }),
 
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+      }
+    }
+  }
 })
+require("telescope").load_extension("ui-select")
