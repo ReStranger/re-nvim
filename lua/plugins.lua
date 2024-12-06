@@ -27,6 +27,15 @@ require("lazy").setup({
       require("configs.lualine")
     end,
   },
+  {
+	  "nvimdev/dashboard-nvim",
+	  event = 'VimEnter',
+	  config = function()
+	    require('dashboard').setup {
+	    }
+	  end,
+	  dependencies = { {'nvim-tree/nvim-web-devicons'}}
+	},
   { "xiyaowong/transparent.nvim" },
   {
     "nvim-telescope/telescope.nvim",
