@@ -20,6 +20,13 @@ require("lazy").setup({
       require("configs.bufferline")
     end,
   },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function ()
+      require("configs.lualine")
+    end,
+  },
 -- Inline
 	{
 		"nvim-treesitter/nvim-treesitter",
