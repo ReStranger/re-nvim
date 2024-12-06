@@ -4,6 +4,7 @@ local bo = vim.bo
 local lsp = vim.lsp
 local api =  vim.api
 local diagnostic = vim.diagnostic
+local inspect = vim.inspect
 g.mapleader = " "
 g.maplocalleader = "\\"
 
@@ -20,28 +21,26 @@ map("n", "<leader>ld", diagnostic.setloclist)
 api.nvim_create_autocmd("LspAttach", {
 	group = api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
-		bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+		bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
     local opts = { buffer = ev.buf }
-    map('n', 'gD', lsp.buf.declaration, opts)
-    map('n', 'gd', lsp.buf.definition, opts)
-    map('n', 'K', lsp.buf.hover, opts)
-    map('n', 'gi', lsp.buf.implementation, opts)
-    map('n', '<C-k>', lsp.buf.signature_help, opts)
+    map("n", "gD", lsp.buf.declaration, opts)
+    map("n", "gd", lsp.buf.definition, opts)
+    map("n", "K", lsp.buf.hover, opts)
+    map("n", "gi", lsp.buf.implementation, opts)
+    map("n", "<C-k>", lsp.buf.signature_help, opts)
 
-    -- vim.keymap.set('n', '<space>sa', vim.lsp.buf.add_workspace_folder, opts)
-    -- vim.keymap.set('n', '<space>sr', vim.lsp.buf.remove_workspace_folder, opts)
-    -- vim.keymap.set('n', '<space>sl', function()
-    --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    -- end, opts)
+    map("n", "<space>sa", lsp.buf.add_workspace_folder, opts)
+    map("n", "<space>sr", lsp.buf.remove_workspace_folder, opts)
+    map("n", "<space>sl", function()
+      print(inspect(lsp.lsp.buf.list_workspace_folders()))
+    end, opts)
 
-    -- TODO: Используется повторно, необходимо вырезать в след.версии
-    -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
 
-    map('n', '<leader>lr', lsp.buf.rename, opts)
-    map({ 'n', 'v' }, '<leader>la', lsp.buf.code_action, opts)
-    map('n', 'gr', lsp.buf.references, opts)
-    map('n', '<leafer>lf', function()
+    map("n", "<leader>lr", lsp.buf.rename, opts)
+    map({ "n", "v" }, "<leader>la", lsp.buf.code_action, opts)
+    map("n", "gr", lsp.buf.references, opts)
+    map("n", "<leafer>lf", function()
       lsp.buf.format { async = true }
     end, opts)
   end,
