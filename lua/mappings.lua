@@ -14,6 +14,10 @@ map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
+map("n", "<leader>v", "<cmd>split<CR>", { desc = "split" })
+map("n", "<leader>b", "<cmd>vsplit<CR>", { desc = "vsplit" })
+map("n", "<leader>x", "<cmd>close<CR>", { desc = "vsplit" })
+
 -- BufferLine
 map('n','<Tab>', ':BufferLineCycleNext<CR>')
 map('n','<S-Tab>', ':BufferLineCyclePrev<CR>')
