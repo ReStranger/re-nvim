@@ -77,4 +77,10 @@ require("lazy").setup({
       require("configs.bufferline")
     end,
   },
+  {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("configs.better-escape")
+    end,
+  }
 })
