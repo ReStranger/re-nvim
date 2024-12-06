@@ -1,4 +1,5 @@
 require("lazy").setup({
+-- UI/UX
   {
     "nvim-neo-tree/neo-tree.nvim",
 		cmp = { "Neotree float toggle", "Neotree left toggle" },
@@ -12,6 +13,14 @@ require("lazy").setup({
 			require("configs.neo-tree")
 		end,
   },
+  {
+    "akinsho/bufferline.nvim",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("configs.bufferline")
+    end,
+  },
+-- Inline
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
@@ -28,19 +37,20 @@ require("lazy").setup({
 			require("configs.nvim-lspconfig")
 		end,
 	},
+-- Base function
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-    {
-      "L3MON4D3/LuaSnip",
-      dependencies = "rafamadriz/friendly-snippets",
-      opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-      config = function(_, opts)
-        require("luasnip").config.set_config(opts)
-        require("configs.luasnip")
-      end,
-    },
+      {
+        "L3MON4D3/LuaSnip",
+        dependencies = "rafamadriz/friendly-snippets",
+        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+        config = function(_, opts)
+          require("luasnip").config.set_config(opts)
+          require("configs.luasnip")
+        end,
+      },
       {
         "windwp/nvim-autopairs",
         opts = {
@@ -71,16 +81,10 @@ require("lazy").setup({
     end,
   },
   {
-    "akinsho/bufferline.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("configs.bufferline")
-    end,
-  },
-  {
     "max397574/better-escape.nvim",
     config = function()
       require("configs.better-escape")
     end,
   }
 })
+--
