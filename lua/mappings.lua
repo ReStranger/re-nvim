@@ -22,6 +22,9 @@ map("n", "<leader>x", "<cmd>close<CR>", { desc = "vsplit" })
 map('n','<Tab>', ':BufferLineCycleNext<CR>')
 map('n','<S-Tab>', ':BufferLineCyclePrev<CR>')
 
+
+map("n", "<leader>tt", "<cmd>TransparentToggle<CR>", { desc = "Transparent Toggle" })
+
 -- Neotree
 map("n", "<leader>i", "<cmd>Neotree float toggle<CR>")
 map("n", "<C-n>", "<cmd>Neotree left toggle<CR>")
@@ -59,3 +62,4 @@ api.nvim_create_autocmd("LspAttach", {
     end, opts)
   end,
 })
+

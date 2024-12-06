@@ -27,6 +27,7 @@ require("lazy").setup({
       require("configs.lualine")
     end,
   },
+  { "xiyaowong/transparent.nvim" },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { 'nvim-lua/plenary.nvim' },
