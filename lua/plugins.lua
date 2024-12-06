@@ -44,6 +44,14 @@ require("lazy").setup({
       require("configs.telescope")
     end
   },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function ()
+      require("configs.catppuccin")
+    end
+  },
 -- Inline
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -111,4 +119,3 @@ require("lazy").setup({
     end,
   }
 })
---
