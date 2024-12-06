@@ -8,6 +8,16 @@ local inspect = vim.inspect
 g.mapleader = " "
 g.maplocalleader = "\\"
 
+
+map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
+map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
+map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
+map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+
+-- BufferLine
+map('n','<Tab>', ':BufferLineCycleNext<CR>')
+map('n','<S-Tab>', ':BufferLineCyclePrev<CR>')
+
 -- Neotree
 map("n", "<leader>i", "<cmd>Neotree float toggle<CR>")
 map("n", "<C-n>", "<cmd>Neotree left toggle<CR>")
