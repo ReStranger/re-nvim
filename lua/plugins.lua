@@ -1,4 +1,4 @@
-require("lazy").setup({
+require("lazy").setup {
   -- UI/UX
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -10,7 +10,7 @@ require("lazy").setup({
       "s1n7ax/nvim-window-picker",
     },
     config = function()
-      require("configs.neo-tree")
+      require "configs.neo-tree"
     end,
   },
   {
@@ -18,7 +18,7 @@ require("lazy").setup({
     event = { "BufReadPost", "BufNewFile" },
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
-      require("configs.bufferline")
+      require "configs.bufferline"
     end,
   },
   {
@@ -26,7 +26,7 @@ require("lazy").setup({
     event = { "BufReadPost", "BufNewFile" },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("configs.lualine")
+      require "configs.lualine"
     end,
   },
   {
@@ -56,9 +56,9 @@ require("lazy").setup({
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
     config = function()
-      require("dashboard").setup {}
+      require "configs.dashboard"
     end,
-    dependencies = { { "nvim-tree/nvim-web-devicons" } }
+    dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
   {
     "xiyaowong/transparent.nvim",
@@ -72,16 +72,16 @@ require("lazy").setup({
       "nvim-telescope/telescope-ui-select.nvim",
     },
     config = function()
-      require("configs.telescope")
-    end
+      require "configs.telescope"
+    end,
   },
   {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
     config = function()
-      require("configs.catppuccin")
-    end
+      require "configs.catppuccin"
+    end,
   },
   -- Inline
   {
@@ -90,14 +90,14 @@ require("lazy").setup({
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
     config = function()
-      require("configs.nvim-treesitter")
+      require "configs.nvim-treesitter"
     end,
   },
   {
     "neovim/nvim-lspconfig",
     event = "User FilePost",
     config = function()
-      require("configs.nvim-lspconfig")
+      require "configs.nvim-lspconfig"
     end,
   },
   {
@@ -125,7 +125,7 @@ require("lazy").setup({
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
         config = function(_, opts)
           require("luasnip").config.set_config(opts)
-          require("configs.luasnip")
+          require "configs.luasnip"
         end,
       },
       {
@@ -153,13 +153,13 @@ require("lazy").setup({
       },
     },
     config = function()
-      require("configs.nvim-cmp")
+      require "configs.nvim-cmp"
     end,
   },
   {
     "max397574/better-escape.nvim",
     config = function()
-      require("configs.better-escape")
+      require "configs.better-escape"
     end,
   },
   -- Rust
@@ -182,4 +182,4 @@ require("lazy").setup({
       crates.show()
     end,
   },
-})
+}
