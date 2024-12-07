@@ -15,14 +15,16 @@ require("lazy").setup({
   },
   {
     "akinsho/bufferline.nvim",
+    event = { "BufReadPost", "BufNewFile" },
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("configs.bufferline")
     end,
   },
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    "nvim-lualine/lualine.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("configs.lualine")
     end,
@@ -39,16 +41,20 @@ require("lazy").setup({
   },
   {
     "nvimdev/dashboard-nvim",
-    event = 'VimEnter',
+    event = "VimEnter",
     config = function()
-      require('dashboard').setup {
+      require("dashboard").setup {
       }
     end,
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+    dependencies = { { "nvim-tree/nvim-web-devicons" } }
   },
-  { "xiyaowong/transparent.nvim" },
+  {
+    "xiyaowong/transparent.nvim",
+    cmd = "TransparentToggle",
+  },
   {
     "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
