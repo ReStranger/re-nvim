@@ -28,7 +28,7 @@ require'nvim-treesitter.configs'.setup {
     "gitignore",
   },
 
-  sync_install = true,
+  sync_install = false,
 
   auto_install = false,
 
