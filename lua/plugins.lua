@@ -37,6 +37,14 @@ require("lazy").setup({
     end,
   },
   {
+    "kevinhwang91/nvim-ufo",
+    dependencies = { "kevinhwang91/promise-async" },
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require "configs.ufo"
+    end,
+  },
+  {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
