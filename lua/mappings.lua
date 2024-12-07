@@ -2,7 +2,7 @@ local g = vim.g
 local map = vim.keymap.set
 local bo = vim.bo
 local lsp = vim.lsp
-local api =  vim.api
+local api = vim.api
 local diagnostic = vim.diagnostic
 local inspect = vim.inspect
 g.mapleader = " "
@@ -14,13 +14,15 @@ map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
+map("n", "<leader>y", "+yi", { desc = "Global yank" })
+
 map("n", "<leader>v", "<cmd>split<CR>", { desc = "split" })
 map("n", "<leader>b", "<cmd>vsplit<CR>", { desc = "vsplit" })
 map("n", "<leader>x", "<cmd>close<CR>", { desc = "vsplit" })
 
 -- BufferLine
-map('n','<Tab>', ':BufferLineCycleNext<CR>')
-map('n','<S-Tab>', ':BufferLineCyclePrev<CR>')
+map("n", "<Tab>", ":BufferLineCycleNext<CR>")
+map("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
 
 
 map("n", "<leader>tt", "<cmd>TransparentToggle<CR>", { desc = "Transparent Toggle" })
@@ -36,9 +38,9 @@ map("n", "]d", diagnostic.goto_next)
 map("n", "<leader>ld", diagnostic.setloclist)
 
 api.nvim_create_autocmd("LspAttach", {
-	group = api.nvim_create_augroup("UserLspConfig", {}),
-	callback = function(ev)
-		bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+  group = api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(ev)
+    bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
     local opts = { buffer = ev.buf }
     map("n", "gD", lsp.buf.declaration, opts)
