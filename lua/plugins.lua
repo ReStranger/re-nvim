@@ -1,17 +1,17 @@
 require("lazy").setup({
--- UI/UX
+  -- UI/UX
   {
     "nvim-neo-tree/neo-tree.nvim",
-		cmp = { "Neotree float toggle", "Neotree left toggle" },
+    cmp = { "Neotree float toggle", "Neotree left toggle" },
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
       "s1n7ax/nvim-window-picker",
     },
-		config = function()
-			require("configs.neo-tree")
-		end,
+    config = function()
+      require("configs.neo-tree")
+    end,
   },
   {
     "akinsho/bufferline.nvim",
@@ -23,19 +23,29 @@ require("lazy").setup({
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
+    config = function()
       require("configs.lualine")
     end,
   },
   {
-	  "nvimdev/dashboard-nvim",
-	  event = 'VimEnter',
-	  config = function()
-	    require('dashboard').setup {
-	    }
-	  end,
-	  dependencies = { {'nvim-tree/nvim-web-devicons'}}
-	},
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+  },
+  {
+    "nvimdev/dashboard-nvim",
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup {
+      }
+    end,
+    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+  },
   { "xiyaowong/transparent.nvim" },
   {
     "nvim-telescope/telescope.nvim",
@@ -43,7 +53,7 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
     },
-    config = function ()
+    config = function()
       require("configs.telescope")
     end
   },
@@ -51,27 +61,27 @@ require("lazy").setup({
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
-    config = function ()
+    config = function()
       require("configs.catppuccin")
     end
   },
--- Inline
-	{
-		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPost", "BufNewFile" },
-		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-		build = ":TSUpdate",
-			config = function()
-				require("configs.nvim-treesitter")
-			end,
-	},
-	{
-		"neovim/nvim-lspconfig",
+  -- Inline
+  {
+    "nvim-treesitter/nvim-treesitter",
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+    build = ":TSUpdate",
+    config = function()
+      require("configs.nvim-treesitter")
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
     event = "User FilePost",
-		config = function()
-			require("configs.nvim-lspconfig")
-		end,
-	},
+    config = function()
+      require("configs.nvim-lspconfig")
+    end,
+  },
   {
     "stevearc/conform.nvim",
     event = "BufWritePre",
@@ -86,7 +96,7 @@ require("lazy").setup({
       require "configs.lint"
     end,
   },
--- Base function
+  -- Base function
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
