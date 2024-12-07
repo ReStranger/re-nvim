@@ -72,6 +72,13 @@ require("lazy").setup({
 			require("configs.nvim-lspconfig")
 		end,
 	},
+  {
+    "mfussenegger/nvim-lint",
+    event = "VeryLazy",
+    config = function()
+      require "configs.lint"
+    end,
+  },
 -- Base function
   {
     "hrsh7th/nvim-cmp",
