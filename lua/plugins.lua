@@ -38,8 +38,8 @@ require("lazy").setup({
   },
   {
     "kevinhwang91/nvim-ufo",
-    dependencies = { "kevinhwang91/promise-async" },
     event = { "BufReadPost", "BufNewFile" },
+    dependencies = { "kevinhwang91/promise-async" },
     config = function()
       require "configs.ufo"
     end,
@@ -47,9 +47,7 @@ require("lazy").setup({
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = {
-      -- add any options here
-    },
+    opts = {},
     dependencies = {
       "MunifTanjim/nui.nvim",
     },
@@ -58,8 +56,7 @@ require("lazy").setup({
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
     config = function()
-      require("dashboard").setup {
-      }
+      require("dashboard").setup {}
     end,
     dependencies = { { "nvim-tree/nvim-web-devicons" } }
   },
@@ -148,7 +145,6 @@ require("lazy").setup({
       {
         "saadparwaiz1/cmp_luasnip",
         "hrsh7th/cmp-nvim-lua",
-
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
