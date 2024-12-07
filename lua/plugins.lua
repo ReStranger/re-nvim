@@ -30,6 +30,13 @@ require("lazy").setup({
     end,
   },
   {
+    "luukvbaal/statuscol.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require "configs.statuscol"
+    end,
+  },
+  {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
