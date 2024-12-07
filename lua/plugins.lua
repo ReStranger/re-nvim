@@ -66,7 +66,7 @@ require("lazy").setup({
   },
   {
     "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
+    event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
