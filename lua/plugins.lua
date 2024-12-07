@@ -73,6 +73,13 @@ require("lazy").setup({
 		end,
 	},
   {
+    "stevearc/conform.nvim",
+    event = "BufWritePre",
+    config = function()
+      require "configs.conform"
+    end,
+  },
+  {
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
     config = function()
