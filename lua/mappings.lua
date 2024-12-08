@@ -45,11 +45,11 @@ api.nvim_create_autocmd("LspAttach", {
     map("n", "gd", lsp.buf.definition, opts)
     map("n", "K", lsp.buf.hover, opts)
     map("n", "gi", lsp.buf.implementation, opts)
-    map("n", "<C-k>", lsp.buf.signature_help, opts)
+    map("n", "<leader>k", lsp.buf.signature_help, opts)
 
-    map("n", "<space>sa", lsp.buf.add_workspace_folder, opts)
-    map("n", "<space>sr", lsp.buf.remove_workspace_folder, opts)
-    map("n", "<space>sl", function()
+    map("n", "<leader>sa", lsp.buf.add_workspace_folder, opts)
+    map("n", "<leader>sr", lsp.buf.remove_workspace_folder, opts)
+    map("n", "<leader>sl", function()
       print(inspect(lsp.lsp.buf.list_workspace_folders()))
     end, opts)
 
