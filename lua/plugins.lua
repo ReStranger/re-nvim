@@ -181,4 +181,7 @@ require("lazy").setup {
       crates.show()
     end,
   },
+  -- Apps
+  "eandrju/cellular-automaton.nvim",
+  cmd = "CellularAutomaton",
 }
