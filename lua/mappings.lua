@@ -13,7 +13,7 @@ map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
-map("n", "<leader>y", "+yi", { desc = "Global yank" })
+map({ "n", "v" }, "<leader>y", '"+yi', { desc = "Global yank" })
 
 map("n", "<leader>v", "<cmd>split<CR>", { desc = "split" })
 map("n", "<leader>b", "<cmd>vsplit<CR>", { desc = "vsplit" })
