@@ -17,7 +17,7 @@ map("n", "<leader>y", "+yi", { desc = "Global yank" })
 
 map("n", "<leader>v", "<cmd>split<CR>", { desc = "split" })
 map("n", "<leader>b", "<cmd>vsplit<CR>", { desc = "vsplit" })
-map("n", "<leader>x", "<cmd>close<CR>", { desc = "vsplit" })
+map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "vsplit" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
