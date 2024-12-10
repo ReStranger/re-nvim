@@ -64,6 +64,15 @@ require("lazy").setup {
         cmd = "TransparentToggle",
     },
     {
+        "folke/todo-comments.nvim",
+        event = "VeryLazy",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("todo-comments").setup()
+        end,
+    },
+
+    {
         "christoomey/vim-tmux-navigator",
         cmd = {
             "TmuxNavigateLeft",
