@@ -71,6 +71,15 @@ require("lazy").setup {
             require("todo-comments").setup()
         end,
     },
+    {
+        "MeanderingProgrammer/markdown.nvim",
+        event = "VeryLazy",
+        ft = { "markdown", "markdown_inline" },
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("render-markdown").setup {}
+        end,
+    },
 
     {
         "christoomey/vim-tmux-navigator",
