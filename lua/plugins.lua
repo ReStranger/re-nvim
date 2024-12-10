@@ -45,7 +45,7 @@ require("lazy").setup {
     },
     {
         "folke/noice.nvim",
-        event = "VeryLazy",
+        event = "BufWritePre",
         opts = {},
         dependencies = {
             "MunifTanjim/nui.nvim",
@@ -65,7 +65,7 @@ require("lazy").setup {
     },
     {
         "folke/todo-comments.nvim",
-        event = "VeryLazy",
+        event = "BufWritePre",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             require("todo-comments").setup()
@@ -73,7 +73,6 @@ require("lazy").setup {
     },
     {
         "MeanderingProgrammer/markdown.nvim",
-        event = "VeryLazy",
         ft = { "markdown", "markdown_inline" },
         dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
         config = function()
@@ -142,7 +141,7 @@ require("lazy").setup {
     },
     {
         "mfussenegger/nvim-lint",
-        event = "VeryLazy",
+        event = "BufWritePre",
         config = function()
             require "configs.lint"
         end,
