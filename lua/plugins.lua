@@ -82,6 +82,12 @@ require("lazy").setup {
     },
 
     {
+        "dundalek/parpar.nvim",
+        event = "BufWritePre",
+        dependencies = { "gpanders/nvim-parinfer", "julienvincent/nvim-paredit" },
+    },
+
+    {
         "christoomey/vim-tmux-navigator",
         cmd = {
             "TmuxNavigateLeft",
@@ -209,6 +215,55 @@ require("lazy").setup {
             crates.show()
         end,
     },
+    -- Web
+    {
+        "windwp/nvim-ts-autotag",
+        event = "InsertEnter",
+        dependencies = { "luukvbaal/statuscol.nvim" },
+        ft = {
+            "astro",
+            "glimmer",
+            "handlebars",
+            "html",
+            "javascript",
+            "jsx",
+            "markdown",
+            "php",
+            "rescript",
+            "svelte",
+            "tsx",
+            "twig",
+            "typescript",
+            "vue",
+            "xml",
+        },
+        config = function()
+            require("nvim-ts-autotag").setup {}
+        end,
+    },
+    {
+        "pmizio/typescript-tools.nvim",
+        event = "BufWritePre",
+        ft = {
+            "astro",
+            "glimmer",
+            "handlebars",
+            "html",
+            "javascript",
+            "jsx",
+            "markdown",
+            "php",
+            "rescript",
+            "svelte",
+            "tsx",
+            "twig",
+            "typescript",
+            "vue",
+            "xml",
+        },
+        dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    },
+
     -- Apps
     "eandrju/cellular-automaton.nvim",
     cmd = "CellularAutomaton",
