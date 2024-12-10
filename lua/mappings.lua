@@ -23,6 +23,13 @@ map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "vsplit" })
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
+-- TMUX
+map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Left" })
+map("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux Down" })
+map("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux Up" })
+map("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux Right" })
+map("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>", { desc = "Tmux Previous" })
+
 -- BufferLine
 map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>")
 map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>")

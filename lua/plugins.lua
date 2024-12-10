@@ -64,6 +64,16 @@ require("lazy").setup {
         cmd = "TransparentToggle",
     },
     {
+        "christoomey/vim-tmux-navigator",
+        cmd = {
+            "TmuxNavigateLeft",
+            "TmuxNavigateDown",
+            "TmuxNavigateUp",
+            "TmuxNavigateRight",
+            "TmuxNavigatePrevious",
+        },
+    },
+    {
         "nvim-telescope/telescope.nvim",
         event = "VeryLazy",
         dependencies = {
