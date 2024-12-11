@@ -2,7 +2,7 @@ require("lazy").setup {
     -- UI/UX
     {
         "nvim-neo-tree/neo-tree.nvim",
-        cmp = { "Neotree float toggle", "Neotree left toggle" },
+        cmd = "Neotree",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
@@ -30,7 +30,7 @@ require("lazy").setup {
     },
     {
         "luukvbaal/statuscol.nvim",
-        event = { "BufReadPost", "BufNewFile" },
+        event = "VeryLazy",
         config = function()
             require "configs.statuscol"
         end,
@@ -264,6 +264,8 @@ require("lazy").setup {
     },
 
     -- Apps
-    "eandrju/cellular-automaton.nvim",
-    cmd = "CellularAutomaton",
+    {
+        "eandrju/cellular-automaton.nvim",
+        cmd = "CellularAutomaton",
+    },
 }
