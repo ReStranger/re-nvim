@@ -2,7 +2,7 @@ require("lazy").setup {
     -- UI/UX
     {
         "nvim-neo-tree/neo-tree.nvim",
-        cmd = "Neotree",
+        event = "VeryLazy",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
@@ -45,7 +45,7 @@ require("lazy").setup {
     },
     {
         "folke/noice.nvim",
-        event = "BufWritePre",
+        event = "VeryLazy",
         opts = {},
         dependencies = {
             "MunifTanjim/nui.nvim",
@@ -65,7 +65,7 @@ require("lazy").setup {
     },
     {
         "folke/todo-comments.nvim",
-        event = "BufWritePre",
+        event = "VeryLazy",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             require("todo-comments").setup()
@@ -82,7 +82,7 @@ require("lazy").setup {
 
     {
         "dundalek/parpar.nvim",
-        event = "BufWritePre",
+        event = "VeryLazy",
         dependencies = { "gpanders/nvim-parinfer", "julienvincent/nvim-paredit" },
     },
 
@@ -141,7 +141,7 @@ require("lazy").setup {
     },
     {
         "mfussenegger/nvim-lint",
-        event = "BufWritePre",
+        event = "VeryLazy",
         config = function()
             require "configs.lint"
         end,
@@ -242,7 +242,7 @@ require("lazy").setup {
     },
     {
         "pmizio/typescript-tools.nvim",
-        event = "BufWritePre",
+        event = "VeryLazy",
         ft = {
             "astro",
             "glimmer",
