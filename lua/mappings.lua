@@ -72,3 +72,7 @@ api.nvim_create_autocmd("LspAttach", {
         end, opts)
     end,
 })
+
+-- DAP
+map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>")
+map("n", "<leader>dr", "<cmd>DapContinue<CR>")
