@@ -295,4 +295,8 @@ require("lazy").setup {
         "eandrju/cellular-automaton.nvim",
         cmd = "CellularAutomaton",
     },
+    {
+        "andweeb/presence.nvim",
+        event = "VeryLazy",
+    },
 }
