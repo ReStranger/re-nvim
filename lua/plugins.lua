@@ -36,6 +36,13 @@ require("lazy").setup {
         end,
     },
     {
+        "brenoprata10/nvim-highlight-colors",
+        event = "VeryLazy",
+        config = function()
+            require("nvim-highlight-colors").setup()
+        end,
+    },
+    {
         "kevinhwang91/nvim-ufo",
         event = { "BufReadPost", "BufNewFile" },
         dependencies = { "kevinhwang91/promise-async" },
