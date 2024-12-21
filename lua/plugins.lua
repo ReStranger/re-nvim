@@ -135,6 +135,11 @@ require("lazy").setup {
         end,
     },
     {
+        "folke/trouble.nvim",
+        cmd = "Trouble",
+        opts = {},
+    },
+    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,

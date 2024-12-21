@@ -76,3 +76,15 @@ api.nvim_create_autocmd("LspAttach", {
 -- DAP
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>")
 map("n", "<leader>dr", "<cmd>DapContinue<CR>")
+
+map("n", "<leader>tx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Diagnostics" })
+map("n", "<leader>tX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Trouble Buffer Diagnostics" })
+map("n", "<leader>cs", "<cmd>Trouble diagnostics toggle focus=false<cr>", { desc = "Trouble Symbols" })
+map(
+    "n",
+    "<leader>cl",
+    "<cmd>Trouble diagnostics toggle focus=false win.position=right<cr>",
+    { desc = "Trouble LSP Definitions / references / ..." }
+)
+map("n", "<leader>tL", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble Location List" })
+map("n", "<leader>tQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble Quickfix List" })
