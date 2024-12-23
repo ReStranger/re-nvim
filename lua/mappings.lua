@@ -19,6 +19,15 @@ map("n", "<leader>v", "<cmd>split<CR>", { desc = "split" })
 map("n", "<leader>b", "<cmd>vsplit<CR>", { desc = "vsplit" })
 map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "vsplit" })
 
+map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+
+map(
+    "n",
+    "<leader>h",
+    "<cmd>botright split<CR><cmd>resize -10<CR><cmd>terminal<CR><cmd>startinsert<CR>",
+    { noremap = true, silent = true }
+)
+
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
