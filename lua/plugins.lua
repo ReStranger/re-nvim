@@ -36,6 +36,17 @@ require("lazy").setup {
         end,
     },
     {
+        "lukas-reineke/indent-blankline.nvim",
+        event = { "BufReadPost", "BufNewFile" },
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {},
+        config = function()
+            require("ibl").setup {}
+        end,
+    },
+    {
         "brenoprata10/nvim-highlight-colors",
         event = "VeryLazy",
         config = function()
