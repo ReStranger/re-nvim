@@ -54,6 +54,13 @@ require("lazy").setup {
         end,
     },
     {
+        "RRethy/vim-illuminate",
+        event = "VeryLazy",
+        config = function()
+            require "configs.vim-illuminate"
+        end,
+    },
+    {
         "kevinhwang91/nvim-ufo",
         event = { "BufReadPost", "BufNewFile" },
         dependencies = { "kevinhwang91/promise-async" },
