@@ -2,6 +2,8 @@ local opt = vim.opt
 local wo = vim.wo
 
 opt.cursorline = true
+opt.list = true
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 wo.number = true
 wo.relativenumber = true
