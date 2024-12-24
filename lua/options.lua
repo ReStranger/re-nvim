@@ -1,6 +1,8 @@
 local opt = vim.opt
 local wo = vim.wo
 
+opt.cursorline = true
+
 wo.number = true
 wo.relativenumber = true
 opt.updatetime = 100
