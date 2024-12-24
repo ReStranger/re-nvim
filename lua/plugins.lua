@@ -147,6 +147,13 @@ require("lazy").setup {
         opts = {},
     },
     {
+        "lewis6991/gitsigns.nvim",
+        event = "VeryLazy",
+        config = function()
+            require "configs.gitsigns"
+        end,
+    },
+    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
