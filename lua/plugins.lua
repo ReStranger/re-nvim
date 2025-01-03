@@ -160,6 +160,12 @@ require("lazy").setup {
         end,
     },
     {
+        "akinsho/toggleterm.nvim",
+        cmd = "ToggleTerm",
+        version = "*",
+        config = true,
+    },
+    {
         "folke/trouble.nvim",
         cmd = "Trouble",
         opts = {},

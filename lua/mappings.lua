@@ -21,13 +21,6 @@ map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "vsplit" })
 
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
-map(
-    "n",
-    "<leader>h",
-    "<cmd>botright split<CR><cmd>resize -10<CR><cmd>terminal<CR><cmd>startinsert<CR>",
-    { noremap = true, silent = true }
-)
-
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
@@ -54,6 +47,9 @@ map("n", "<leader>lD", diagnostic.open_float)
 map("n", "[d", diagnostic.goto_prev)
 map("n", "]d", diagnostic.goto_next)
 map("n", "<leader>ld", diagnostic.setloclist)
+
+-- Toggle Term
+map("n", "<leader>h", "<cmd>ToggleTerm<CR>", { desc = "ToggleTerm" })
 
 api.nvim_create_autocmd("LspAttach", {
     group = api.nvim_create_augroup("UserLspConfig", {}),
