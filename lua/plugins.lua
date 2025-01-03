@@ -165,6 +165,19 @@ require("lazy").setup {
         opts = {},
     },
     {
+        "jackMort/ChatGPT.nvim",
+        event = "VeryLazy",
+        config = function()
+            require "configs.chatgpt"
+        end,
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "folke/trouble.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+    },
+    {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
         config = function()
