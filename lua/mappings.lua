@@ -50,6 +50,7 @@ map("n", "<leader>ld", diagnostic.setloclist)
 
 -- Toggle Term
 map("n", "<leader>h", "<cmd>ToggleTerm<CR>", { desc = "ToggleTerm" })
+map("n", "<leader>f", "<cmd>ToggleTerm direction=float<CR>", { desc = "ToggleTerm" })
 
 api.nvim_create_autocmd("LspAttach", {
     group = api.nvim_create_augroup("UserLspConfig", {}),
