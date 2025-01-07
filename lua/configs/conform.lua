@@ -8,8 +8,8 @@ local options = {
         javascriptreact = { "prettierd" },
         typescriptreact = { "prettierd" },
         python = { "black" },
-        c = { "clang-format" },
-        cpp = { "clang-format" },
+        c = { "clang_format" },
+        cpp = { "clang_format" },
         markdown = { "prettierd" },
         markdown_inline = { "prettierd" },
         nix = { "nixpkgs-fmt" },
@@ -20,6 +20,10 @@ local options = {
         timeout_ms = 500,
         lsp_fallback = true,
     },
+}
+
+require("conform").formatters.clang_format = {
+    args = { "--style={BasedOnStyle: LLVM, IndentWidth: 4}" },
 }
 
 require("conform").setup(options)
