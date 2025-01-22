@@ -82,6 +82,9 @@ api.nvim_create_autocmd("LspAttach", {
 -- DAP
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>")
 map("n", "<leader>dr", "<cmd>DapContinue<CR>")
+map("n", "<leader>dpr", function()
+    require("dap-python").test_method()
+end)
 
 map("n", "<leader>tx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Diagnostics" })
 map("n", "<leader>tX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Trouble Buffer Diagnostics" })

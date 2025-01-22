@@ -1,3 +1,6 @@
+require("mason-nvim-lint").setup({
+    automatic_installation = true,
+})
 require("lint").linters_by_ft = {
     javascript = { "eslint_d" },
     typescript = { "eslint_d" },
