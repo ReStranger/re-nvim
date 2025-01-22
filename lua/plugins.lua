@@ -184,6 +184,7 @@ require("lazy").setup {
     {
         "neovim/nvim-lspconfig",
         event = "User FilePost",
+        dependencies = "williamboman/mason-lspconfig.nvim",
         config = function()
             require "configs.nvim-lspconfig"
         end,
@@ -191,6 +192,7 @@ require("lazy").setup {
     {
         "stevearc/conform.nvim",
         event = "BufWritePre",
+        dependencies = "zapling/mason-conform.nvim",
         config = function()
             require "configs.conform"
         end,
@@ -198,8 +200,66 @@ require("lazy").setup {
     {
         "mfussenegger/nvim-lint",
         event = "VeryLazy",
+        dependencies = "rshkarin/mason-nvim-lint",
         config = function()
             require "configs.lint"
+        end,
+    },
+    {
+        "rcarriga/nvim-dap-ui",
+        cmd = "DapToggleBreakpoint",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            config = function()
+                require "configs.dap"
+            end,
+        },
+        config = function()
+            local dap = require "dap"
+            local dapui = require "dapui"
+            dapui.setup()
+            dap.listeners.after.event_initialized["dapui_config"] = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated["dapui_config"] = function()
+                dapui.close()
+            end
+            dap.listeners.before.event_exited["dapui_config"] = function()
+                dapui.close()
+            end
+        end,
+    },
+
+    {
+        "jay-babu/mason-nvim-dap.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "mfussenegger/nvim-dap",
+        },
+        config = function()
+            require "configs.mason-dap-nvim"
+        end,
+    },
+    {
+        "mfussenegger/nvim-dap-python",
+        ft = "python",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "rcarriga/nvim-dap-ui",
+            "nvim-neotest/nvim-nio",
+            "jay-babu/mason-nvim-dap.nvim",
+        },
+        config = function(_, opts)
+            local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+            require("dap-python").setup(path)
+        end,
+    },
+    {
+        "williamboman/mason.nvim",
+        cmd = { "Mason" },
+        config = function()
+            require "configs.mason"
         end,
     },
     -- Base function
