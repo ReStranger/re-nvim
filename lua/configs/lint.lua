@@ -1,6 +1,10 @@
-require("mason-nvim-lint").setup({
+---@diagnostic disable: undefined-global
+local api = vim.api
+---@diagnostic enable: undefined-global
+
+require("mason-nvim-lint").setup {
     automatic_installation = true,
-})
+}
 require("lint").linters_by_ft = {
     javascript = { "eslint_d" },
     typescript = { "eslint_d" },
@@ -9,7 +13,7 @@ require("lint").linters_by_ft = {
     python = { "mypy" },
 }
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+api.nvim_create_autocmd({ "BufWritePost" }, {
     callback = function()
         require("lint").try_lint()
     end,

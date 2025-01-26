@@ -1,5 +1,7 @@
+---@diagnostic disable: undefined-global
 local opt = vim.opt
 local wo = vim.wo
+---@diagnostic enable: undefined-global
 
 opt.cursorline = true
 opt.list = true

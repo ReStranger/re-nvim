@@ -1,27 +1,32 @@
+---@diagnostic disable: undefined-global
+local fn = vim.fn
+local o = vim.o
+---@diagnostic enable: undefined-global
+
 local ufo = require "ufo"
 
-vim.o.foldcolumn = "1" -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-vim.o.fillchars = [[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]]
+o.foldcolumn = "1" -- '0' is not bad
+o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+o.foldlevelstart = 99
+o.foldenable = true
+o.fillchars = [[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]]
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}
     local suffix = (" 󰁂 %d "):format(endLnum - lnum)
-    local sufWidth = vim.fn.strdisplaywidth(suffix)
+    local sufWidth = fn.strdisplaywidth(suffix)
     local targetWidth = width - sufWidth
     local curWidth = 0
     for _, chunk in ipairs(virtText) do
         local chunkText = chunk[1]
-        local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+        local chunkWidth = fn.strdisplaywidth(chunkText)
         if targetWidth > curWidth + chunkWidth then
             table.insert(newVirtText, chunk)
         else
             chunkText = truncate(chunkText, targetWidth - curWidth)
             local hlGroup = chunk[2]
             table.insert(newVirtText, { chunkText, hlGroup })
-            chunkWidth = vim.fn.strdisplaywidth(chunkText)
+            chunkWidth = fn.strdisplaywidth(chunkText)
             if curWidth + chunkWidth < targetWidth then
                 suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
             end

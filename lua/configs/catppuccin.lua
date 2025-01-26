@@ -1,3 +1,7 @@
+---@diagnostic disable: undefined-global
+local cmd = vim.cmd
+---@diagnostic enable: undefined-global
+
 require("catppuccin").setup {
     flavour = "auto", -- latte, frappe, macchiato, mocha
     background = { -- :h background
@@ -66,4 +70,4 @@ require("catppuccin").setup {
 }
 
 -- setup must be called before loading
-vim.cmd.colorscheme "catppuccin"
+cmd.colorscheme "catppuccin"

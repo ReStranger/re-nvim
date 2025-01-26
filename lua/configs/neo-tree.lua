@@ -1,4 +1,6 @@
+---@diagnostic disable: undefined-global
 local fn = vim.fn
+---@diagnostic enable: undefined-global
 
 fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
 fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
