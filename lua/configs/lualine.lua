@@ -1,3 +1,9 @@
+---@diagnostic disable: undefined-global
+local api = vim.api
+local fn = vim.fn
+local lsp = vim.lsp
+---@diagnostic enable: undefined-global
+
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
@@ -21,14 +27,14 @@ local colors = {
 
 local conditions = {
     buffer_not_empty = function()
-        return vim.fn.empty(vim.fn.expand "%:t") ~= 1
+        return fn.empty(fn.expand "%:t") ~= 1
     end,
     hide_in_width = function()
-        return vim.fn.winwidth(0) > 80
+        return fn.winwidth(0) > 80
     end,
     check_git_workspace = function()
-        local filepath = vim.fn.expand "%:p:h"
-        local gitdir = vim.fn.finddir(".git", filepath .. ";")
+        local filepath = fn.expand "%:p:h"
+        local gitdir = fn.finddir(".git", filepath .. ";")
         return gitdir and #gitdir > 0 and #gitdir < #filepath
     end,
 }
@@ -115,7 +121,7 @@ ins_left {
             ["!"] = colors.red,
             t = colors.red,
         }
-        return { fg = mode_color[vim.fn.mode()] }
+        return { fg = mode_color[fn.mode()] }
     end,
     padding = { right = 1 },
 }
@@ -159,14 +165,14 @@ ins_left {
     -- Lsp server name .
     function()
         local msg = "No Active Lsp"
-        local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
-        local clients = vim.lsp.get_clients()
+        local buf_ft = api.nvim_get_option_value("filetype", { buf = 0 })
+        local clients = lsp.get_clients()
         if next(clients) == nil then
             return msg
         end
         for _, client in ipairs(clients) do
             local filetypes = client.config.filetypes
-            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+            if filetypes and fn.index(filetypes, buf_ft) ~= -1 then
                 return client.name
             end
         end

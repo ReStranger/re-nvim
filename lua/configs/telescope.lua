@@ -1,4 +1,7 @@
+---@diagnostic disable: undefined-global
 local map = vim.keymap.set
+---@diagnostic enable: undefined-global
+
 local builtin = require "telescope.builtin"
 
 require("telescope").setup {

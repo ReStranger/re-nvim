@@ -1,5 +1,7 @@
+---@diagnostic disable: undefined-global
 local api = vim.api
 local g = vim.g
+---@diagnostic enable: undefined-global
 
 -- vscode format
 require("luasnip.loaders.from_vscode").lazy_load { exclude = g.vscode_snippets_exclude or {} }

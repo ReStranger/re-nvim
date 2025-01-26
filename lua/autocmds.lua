@@ -1,7 +1,9 @@
+---@diagnostic disable: undefined-global
 local api = vim.api
+local autocmd = api.nvim_create_autocmd
 local g = vim.g
 local schedule = vim.schedule
-local autocmd = api.nvim_create_autocmd
+---@diagnostic enable: undefined-global
 
 -- user event that loads after UIEnter + only if file buf is there
 autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {

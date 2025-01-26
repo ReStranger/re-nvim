@@ -1,10 +1,13 @@
-local g = vim.g
-local map = vim.keymap.set
-local bo = vim.bo
-local lsp = vim.lsp
+---@diagnostic disable: undefined-global
 local api = vim.api
+local bo = vim.bo
 local diagnostic = vim.diagnostic
+local g = vim.g
 local inspect = vim.inspect
+local lsp = vim.lsp
+local map = vim.keymap.set
+---@diagnostic enable: undefined-global
+
 g.mapleader = " "
 g.maplocalleader = "\\"
 

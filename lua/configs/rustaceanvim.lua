@@ -1,7 +1,6 @@
-local map = vim.keymap.set
-local cmd = vim.cmd
+---@diagnostic disable: undefined-global
 local g = vim.g
-local bufnr = vim.api.nvim_get_current_buf()
+---@diagnostic enable: undefined-global
 
 g.rustaceanvim = {
     tools = {},
