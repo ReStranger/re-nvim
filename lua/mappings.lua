@@ -8,22 +8,22 @@ local inspect = vim.inspect
 g.mapleader = " "
 g.maplocalleader = "\\"
 
-map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
-map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
-map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+map("n", "<C-h>", "<C-w>h", { desc = "Switch window left" })
+map("n", "<C-l>", "<C-w>l", { desc = "Switch window right" })
+map("n", "<C-j>", "<C-w>j", { desc = "Switch window down" })
+map("n", "<C-k>", "<C-w>k", { desc = "Switch window up" })
 
 map({ "n", "v" }, "<leader>y", '"+y', { desc = "Global yank" })
 
-map("n", "<leader>v", "<cmd>split<CR>", { desc = "split" })
-map("n", "<leader>b", "<cmd>vsplit<CR>", { desc = "vsplit" })
-map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "vsplit" })
+map("n", "<leader>v", "<cmd>split<CR>", { desc = "Window horizontal split" })
+map("n", "<leader>b", "<cmd>vsplit<CR>", { desc = "Window vertical split" })
+map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Window close" })
 
-map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+map("t", "<C-x>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
 
 -- Comment
-map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
-map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
+map("n", "<leader>/", "gcc", { desc = "Toggle comment", remap = true })
+map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 
 -- TMUX
 map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Left" })
@@ -33,24 +33,24 @@ map("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux Right" })
 map("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>", { desc = "Tmux Previous" })
 
 -- BufferLine
-map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>")
-map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>")
+map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Buffer next" })
+map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Buffer prev" })
 
 map("n", "<leader>tt", "<cmd>TransparentToggle<CR>", { desc = "Transparent Toggle" })
 
 -- Neotree
-map("n", "<leader>i", "<cmd>Neotree float toggle<CR>")
-map("n", "<C-n>", "<cmd>Neotree left toggle<CR>")
+map("n", "<leader>i", "<cmd>Neotree float toggle<CR>", { desc = "Neotree toggle float" })
+map("n", "<C-n>", "<cmd>Neotree left toggle<CR>", { desc = "Neotree toggle left" })
 
 -- LSP
-map("n", "<leader>lD", diagnostic.open_float)
-map("n", "[d", diagnostic.goto_prev)
-map("n", "]d", diagnostic.goto_next)
-map("n", "<leader>ld", diagnostic.setloclist)
+map("n", "<leader>lD", diagnostic.open_float, { desc = "LSP Open float diagnostic" })
+map("n", "[d", diagnostic.goto_prev, { desc = "LSP Goto prev diagnostic" })
+map("n", "]d", diagnostic.goto_next, { desc = "LSP Goto prev diagnostic" })
+map("n", "<leader>ld", diagnostic.setloclist, { desc = "LSP Diagnostic list" })
 
 -- Toggle Term
-map("n", "<leader>h", "<cmd>ToggleTerm<CR>", { desc = "ToggleTerm" })
-map("n", "<leader>f", "<cmd>ToggleTerm direction=float<CR>", { desc = "ToggleTerm" })
+map("n", "<leader>h", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+map("n", "<leader>f", "<cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
 
 api.nvim_create_autocmd("LspAttach", {
     group = api.nvim_create_augroup("UserLspConfig", {}),
@@ -58,33 +58,33 @@ api.nvim_create_autocmd("LspAttach", {
         bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
         local opts = { buffer = ev.buf }
-        map("n", "gD", lsp.buf.declaration, opts)
-        map("n", "gd", lsp.buf.definition, opts)
-        map("n", "K", lsp.buf.hover, opts)
-        map("n", "gi", lsp.buf.implementation, opts)
-        map("n", "<C-k>", lsp.buf.signature_help, opts)
+        map("n", "gD", lsp.buf.declaration, opts, { desc = "LSP Go to declaration" })
+        map("n", "gd", lsp.buf.definition, opts, { desc = "LSP Go to definition" })
+        map("n", "K", lsp.buf.hover, opts, { desc = "LSP Show hover" })
+        map("n", "gi", lsp.buf.implementation, opts, { desc = "LSP Go to implementation" })
+        map("n", "<C-k>", lsp.buf.signature_help, opts, { desc = "LSP Show signature help" })
 
-        map("n", "<space>sa", lsp.buf.add_workspace_folder, opts)
-        map("n", "<space>sr", lsp.buf.remove_workspace_folder, opts)
+        map("n", "<space>sa", lsp.buf.add_workspace_folder, opts, { desc = "LSP Add workspace folder" })
+        map("n", "<space>sr", lsp.buf.remove_workspace_folder, opts, { desc = "LSP Remove workspace folder" })
         map("n", "<space>sl", function()
             print(inspect(lsp.lsp.buf.list_workspace_folders()))
-        end, opts)
+        end, opts, { desc = "LSP Show signature help" })
 
-        map("n", "<leader>lr", lsp.buf.rename, opts)
-        map({ "n", "v" }, "<leader>la", lsp.buf.code_action, opts)
-        map("n", "gr", lsp.buf.references, opts)
+        map("n", "<leader>lr", lsp.buf.rename, opts, { desc = "LSP Rename" })
+        map({ "n", "v" }, "<leader>la", lsp.buf.code_action, opts, { desc = "LSP Code actions" })
+        map("n", "gr", lsp.buf.references, opts, { desc = "LSP Buffer references" })
         map("n", "<leafer>lf", function()
             lsp.buf.format { async = true }
-        end, opts)
+        end, opts, { desc = "LSP Buffer format" })
     end,
 })
 
 -- DAP
-map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>")
-map("n", "<leader>dr", "<cmd>DapContinue<CR>")
+map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", { desc = "DAP Toggle breakpoint" })
+map("n", "<leader>dr", "<cmd>DapContinue<CR>", { desc = "DAP Start debug menu" })
 map("n", "<leader>dpr", function()
     require("dap-python").test_method()
-end)
+end, { desc = "DAP Start python debug menu" })
 
 -- Trouble
 map("n", "<leader>tx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Diagnostics" })
