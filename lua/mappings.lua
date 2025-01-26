@@ -86,6 +86,7 @@ map("n", "<leader>dpr", function()
     require("dap-python").test_method()
 end)
 
+-- Trouble
 map("n", "<leader>tx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Diagnostics" })
 map("n", "<leader>tX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Trouble Buffer Diagnostics" })
 map("n", "<leader>cs", "<cmd>Trouble diagnostics toggle focus=false<cr>", { desc = "Trouble Symbols" })
