@@ -262,6 +262,22 @@ require("lazy").setup {
             require "configs.mason"
         end,
     },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {
+            preset = "modern",
+        },
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show { global = false }
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
+            },
+        },
+    },
     -- Base function
     {
         "hrsh7th/nvim-cmp",
