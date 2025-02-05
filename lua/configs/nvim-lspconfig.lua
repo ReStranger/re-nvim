@@ -1,6 +1,7 @@
 ---@diagnostic disable: undefined-global
 local api = vim.api
 local buf = vim.buf
+local diagnostic = vim.diagnostic
 local lsp = vim.lsp
 ---@diagnostic enable: undefined-global
 
@@ -30,8 +31,13 @@ local border = {
 
 -- LSP settings (for overriding per client)
 local handlers = {
-    ["textDocument/hover"] = lsp.with(lsp.handlers.hover, { border = border }),
-    ["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, { border = border }),
+    ["textDocument/hover"] = lsp.with(lsp.handlers.hover, { border = "rounded" }),
+    ["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, { border = "rounded" }),
+}
+diagnostic.config {
+    float = {
+        border = "rounded",
+    },
 }
 
 -- To instead override globally
