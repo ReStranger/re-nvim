@@ -1,3 +1,7 @@
+---@diagnostic disable: undefined-global
+local g = vim.g
+---@diagnostic enable: undefined-global
+
 require("lazy").setup {
     -- UI/UX
     {
@@ -20,14 +24,14 @@ require("lazy").setup {
             require "configs.bufferline"
         end,
     },
-    {
+    g.re_nvim_style ~= "minimal" and {
         "nvim-lualine/lualine.nvim",
         event = { "BufReadPost", "BufNewFile" },
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require "configs.lualine"
         end,
-    },
+    } or {},
     {
         "luukvbaal/statuscol.nvim",
         event = "VeryLazy",
@@ -163,14 +167,24 @@ require("lazy").setup {
             require "configs.gitsigns"
         end,
     },
-    {
+    g.re_nvim_theme == "catppuccin" and {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
         config = function()
             require "configs.catppuccin"
         end,
-    },
+    } or {},
+
+    g.re_nvim_theme == "gruvbox" and {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        config = true,
+        opts = ...,
+        config = function()
+            require "configs.gruvbox"
+        end,
+    } or {},
     -- Inline
     {
         "nvim-treesitter/nvim-treesitter",
