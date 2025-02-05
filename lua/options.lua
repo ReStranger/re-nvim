@@ -8,6 +8,7 @@ g.re_nvim_style = "minimal" -- normal | minimal
 g.re_nvim_theme = "gruvbox" -- catppuccin | gruvbox | none
 
 opt.cursorline = true
+opt.colorcolumn = "120"
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
