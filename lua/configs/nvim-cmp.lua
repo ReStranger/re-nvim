@@ -36,10 +36,10 @@ cmp.setup {
             require("luasnip").lsp_expand(args.body)
         end,
     },
-    window = {
+    window = vim.g.re_nvim_style ~= "minimal" and {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
-    },
+    } or nil,
     mapping = cmp.mapping.preset.insert {
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),

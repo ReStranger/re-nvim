@@ -2,6 +2,7 @@
 local api = vim.api
 local buf = vim.buf
 local diagnostic = vim.diagnostic
+local g = vim.g
 local lsp = vim.lsp
 ---@diagnostic enable: undefined-global
 
@@ -15,25 +16,29 @@ require("mason-lspconfig").setup {
     automatic_installation = true,
 }
 
-local border = {
-    { "╭", "FloatBorder" },
+local border = g.re_nvim_style ~= "minimal"
+        and {
+            { "╭", "FloatBorder" },
 
-    { "─", "FloatBorder" },
-    { "╮", "FloatBorder" },
-    { "│", "FloatBorder" },
-    { "╯", "FloatBorder" },
-    { "─", "FloatBorder" },
+            { "─", "FloatBorder" },
+            { "╮", "FloatBorder" },
+            { "│", "FloatBorder" },
+            { "╯", "FloatBorder" },
+            { "─", "FloatBorder" },
 
-    { "╰", "FloatBorder" },
+            { "╰", "FloatBorder" },
 
-    { "│", "FloatBorder" },
-}
+            { "│", "FloatBorder" },
+        }
+    or {}
 
 -- LSP settings (for overriding per client)
-local handlers = {
-    ["textDocument/hover"] = lsp.with(lsp.handlers.hover, { border = "rounded" }),
-    ["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, { border = "rounded" }),
-}
+local handlers = g.re_nvim_style ~= "minimal"
+        and {
+            ["textDocument/hover"] = lsp.with(lsp.handlers.hover, { border = "rounded" }),
+            ["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, { border = "rounded" }),
+        }
+    or {}
 diagnostic.config {
     float = {
         border = "rounded",
