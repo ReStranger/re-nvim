@@ -207,9 +207,10 @@ require("lazy").setup {
     },
     {
         "rcarriga/nvim-dap-ui",
-        cmd = "DapToggleBreakpoint",
+        event = { "BufReadPost", "BufNewFile" },
         dependencies = {
             "mfussenegger/nvim-dap",
+            event = { "BufReadPost", "BufNewFile" },
             config = function()
                 require "configs.dap"
             end,

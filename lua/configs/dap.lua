@@ -6,6 +6,10 @@ local dap = require "dap"
 dap.adapters.codelldb = {
     type = "executable",
     command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
+    executable = {
+        command = fn.stdpath "data" .. "/mason/bin/codelldb",
+        args = { "--port", "13000" },
+    },
 
     -- On windows you may have to uncomment this:
     -- detached = false,
@@ -19,9 +23,11 @@ dap.configurations.cpp = {
             return fn.input("Path to executable: ", fn.getcwd() .. "/", "file")
         end,
         cwd = "${workspaceFolder}",
-        stopOnEntry = false,
+        stopOnEntry = true,
     },
 }
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.h = dap.configurations.cpp
 dap.adapters["pwa-node"] = {
     type = "server",
     host = "localhost",
