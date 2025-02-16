@@ -3,16 +3,15 @@ local fn = vim.fn
 ---@diagnostic enable: undefined-global
 
 local dap = require "dap"
+
+-- FIXME: Debugger breaks if you use symlinks
 dap.adapters.codelldb = {
     type = "executable",
-    command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
+    command = "codelldb",
     executable = {
         command = fn.stdpath "data" .. "/mason/bin/codelldb",
         args = { "--port", "13000" },
     },
-
-    -- On windows you may have to uncomment this:
-    -- detached = false,
 }
 dap.configurations.cpp = {
     {
@@ -23,11 +22,12 @@ dap.configurations.cpp = {
             return fn.input("Path to executable: ", fn.getcwd() .. "/", "file")
         end,
         cwd = "${workspaceFolder}",
-        stopOnEntry = true,
+        stopOnEntry = false,
     },
 }
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.h = dap.configurations.cpp
+
 dap.adapters["pwa-node"] = {
     type = "server",
     host = "localhost",
