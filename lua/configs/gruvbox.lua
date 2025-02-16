@@ -1,3 +1,7 @@
+---@diagnostic disable: undefined-global
+local cmd = vim.cmd
+---@diagnostic enable: undefined-global
+
 -- Default options:
 require("gruvbox").setup {
     terminal_colors = true, -- add neovim terminal colors
@@ -23,4 +27,4 @@ require("gruvbox").setup {
     dim_inactive = false,
     transparent_mode = false,
 }
-vim.cmd "colorscheme gruvbox"
+cmd "colorscheme gruvbox"
