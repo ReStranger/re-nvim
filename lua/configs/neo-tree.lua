@@ -8,6 +8,13 @@ fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignIn
 fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
 require("neo-tree").setup {
+    sources = {
+        "filesystem",
+        "git_status",
+    },
+    source_selector = {
+        winbar = true,
+    },
     close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
     popup_border_style = "rounded",
     enable_git_status = true,
@@ -115,6 +122,62 @@ require("neo-tree").setup {
         mapping_options = {
             noremap = true,
             nowait = true,
+        },
+        mappings = {
+            ["<space>"] = {
+                "toggle_node",
+                nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+            },
+            ["<2-LeftMouse>"] = "open",
+            ["<cr>"] = "open",
+            -- ["<cr>"] = { "open", config = { expand_nested_files = true } }, -- expand nested file takes precedence
+            ["<esc>"] = "cancel", -- close preview or floating neo-tree window
+            ["P"] = {
+                "toggle_preview",
+                config = {
+                    use_float = true,
+                    use_image_nvim = false,
+                    -- title = "Neo-tree Preview", -- You can define a custom title for the preview floating window.
+                },
+            },
+            ["<C-f>"] = { "scroll_preview", config = { direction = -10 } },
+            ["<C-b>"] = { "scroll_preview", config = { direction = 10 } },
+            ["l"] = "focus_preview",
+            ["S"] = "open_split",
+            -- ["S"] = "split_with_window_picker",
+            ["s"] = "open_vsplit",
+            -- ["sr"] = "open_rightbelow_vs",
+            -- ["sl"] = "open_leftabove_vs",
+            -- ["s"] = "vsplit_with_window_picker",
+            ["t"] = "open_tabnew",
+            -- ["<cr>"] = "open_drop",
+            -- ["t"] = "open_tab_drop",
+            ["w"] = "open_with_window_picker",
+            ["C"] = "close_node",
+            ["z"] = "close_all_nodes",
+            --["Z"] = "expand_all_nodes",
+            ["R"] = "refresh",
+            ["a"] = {
+                "add",
+                -- some commands may take optional config options, see `:h neo-tree-mappings` for details
+                config = {
+                    show_path = "none", -- "none", "relative", "absolute"
+                },
+            },
+            ["A"] = "add_directory", -- also accepts the config.show_path and config.insert_as options.
+            ["d"] = "delete",
+            ["r"] = "rename",
+            ["b"] = "rename_basename",
+            ["y"] = "copy_to_clipboard",
+            ["x"] = "cut_to_clipboard",
+            ["p"] = "paste_from_clipboard",
+            ["c"] = "copy", -- takes text input for destination, also accepts the config.show_path and config.insert_as options
+            ["m"] = "move", -- takes text input for destination, also accepts the config.show_path and config.insert_as options
+            ["e"] = "toggle_auto_expand_width",
+            ["q"] = "close_window",
+            ["?"] = "show_help",
+            ["<"] = "prev_source",
+            ["<TAB>"] = "next_source",
         },
     },
     nesting_rules = {},
