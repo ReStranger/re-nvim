@@ -1,3 +1,7 @@
+---@diagnostic disable: undefined-global
+local g = vim.g
+---@diagnostic enable: undefined-global
+
 -- Set up nvim-cmp.
 local cmp = require "cmp"
 
@@ -36,7 +40,7 @@ cmp.setup {
             require("luasnip").lsp_expand(args.body)
         end,
     },
-    window = vim.g.re_nvim_style ~= "minimal" and {
+    window = g.re_nvim_style ~= "minimal" and {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     } or nil,
