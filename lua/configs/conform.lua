@@ -27,7 +27,7 @@ local options = {
 }
 
 require("conform").formatters.clang_format = {
-    args = { "--style={BasedOnStyle: LLVM, IndentWidth: 4}" },
+    args = { "--style={BasedOnStyle: Google, IndentWidth: 4}" },
 }
 
 require("conform").setup(options)
