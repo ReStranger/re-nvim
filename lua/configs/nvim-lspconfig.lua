@@ -73,14 +73,7 @@ lspconfig.pyright.setup {
     },
 }
 
-lspconfig.clangd.setup {
-    cmd = {
-        "clangd",
-        "--clang-tidy",
-        "--clang-tidy-checks='google-,modernize-,performance-*'",
-        "--compile-commands-dir=.",
-    },
-}
+lspconfig.clangd.setup { cmd = { "clangd", "--compile-commands-dir=." } }
 
 local function organize_imports()
     local params = {
