@@ -5,7 +5,7 @@ local wo = vim.wo
 ---@diagnostic enable: undefined-global
 
 -- Disable any visual plugins (like lualine and etc)
-g.re_nvim_style = "minimal" -- normal | minimal
+g.re_nvim_style = "normal" -- normal | minimal
 g.re_nvim_border_style = "rounded" -- rounded | square | none
 g.re_nvim_theme = "catppuccin" -- catppuccin | gruvbox | none
 
