@@ -16,24 +16,8 @@ require("mason-lspconfig").setup {
     automatic_installation = true,
 }
 
-local border = g.re_nvim_style ~= "minimal"
-        and {
-            { "╭", "FloatBorder" },
-
-            { "─", "FloatBorder" },
-            { "╮", "FloatBorder" },
-            { "│", "FloatBorder" },
-            { "╯", "FloatBorder" },
-            { "─", "FloatBorder" },
-
-            { "╰", "FloatBorder" },
-
-            { "│", "FloatBorder" },
-        }
-    or {}
-
 -- LSP settings (for overriding per client)
-local handlers = g.re_nvim_style ~= "minimal"
+local handlers = g.re_nvim_border_style == "rounded"
         and {
             ["textDocument/hover"] = lsp.with(lsp.handlers.hover, { border = "rounded" }),
             ["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, { border = "rounded" }),
@@ -90,7 +74,12 @@ lspconfig.pyright.setup {
 }
 
 lspconfig.clangd.setup {
-    cmd = { "clangd", "--compile-commands-dir=." },
+    cmd = {
+        "clangd",
+        "--clang-tidy",
+        "--clang-tidy-checks='google-,modernize-,performance-*'",
+        "--compile-commands-dir=.",
+    },
 }
 
 local function organize_imports()

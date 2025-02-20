@@ -4,8 +4,15 @@ local g = vim.g
 local wo = vim.wo
 ---@diagnostic enable: undefined-global
 
+-- Disable any visual plugins (like lualine and etc)
 g.re_nvim_style = "minimal" -- normal | minimal
-g.re_nvim_theme = "gruvbox" -- catppuccin | gruvbox | none
+g.re_nvim_border_style = "rounded" -- rounded | square | none
+g.re_nvim_theme = "catppuccin" -- catppuccin | gruvbox | none
+
+-- Plugins
+g.re_nvim_dashboard = true
+g.re_nvim_statuscol = true
+g.re_nvim_noice = true
 
 opt.cursorline = true
 opt.colorcolumn = "120"

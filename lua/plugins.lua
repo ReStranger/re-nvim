@@ -27,18 +27,18 @@ require("lazy").setup {
     g.re_nvim_style ~= "minimal" and {
         "nvim-lualine/lualine.nvim",
         event = { "BufReadPost", "BufNewFile" },
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
             require "configs.lualine"
         end,
     } or {},
-    {
+    g.re_nvim_statuscol == true and {
         "luukvbaal/statuscol.nvim",
         event = "VeryLazy",
         config = function()
             require "configs.statuscol"
         end,
-    },
+    } or {},
     {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPost", "BufNewFile" },
@@ -67,27 +67,25 @@ require("lazy").setup {
     {
         "kevinhwang91/nvim-ufo",
         event = { "BufReadPost", "BufNewFile" },
-        dependencies = { "kevinhwang91/promise-async" },
+        dependencies = "kevinhwang91/promise-async",
         config = function()
             require "configs.ufo"
         end,
     },
-    {
+    g.re_nvim_noice == true and {
         "folke/noice.nvim",
         event = "VeryLazy",
         opts = {},
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-        },
-    },
-    {
+        dependencies = "MunifTanjim/nui.nvim",
+    } or {},
+    g.re_nvim_dashboard == true and {
         "nvimdev/dashboard-nvim",
         event = "VimEnter",
         config = function()
             require "configs.dashboard"
         end,
-        dependencies = { { "nvim-tree/nvim-web-devicons" } },
-    },
+        dependencies = "nvim-tree/nvim-web-devicons",
+    } or {},
     {
         "xiyaowong/transparent.nvim",
         cmd = "TransparentToggle",
@@ -95,7 +93,7 @@ require("lazy").setup {
     {
         "folke/todo-comments.nvim",
         event = "VeryLazy",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = "nvim-lua/plenary.nvim",
         config = function()
             require("todo-comments").setup()
         end,
@@ -365,7 +363,7 @@ require("lazy").setup {
     {
         "windwp/nvim-ts-autotag",
         event = "InsertEnter",
-        dependencies = { "luukvbaal/statuscol.nvim" },
+        dependencies = "luukvbaal/statuscol.nvim",
         ft = {
             "astro",
             "glimmer",

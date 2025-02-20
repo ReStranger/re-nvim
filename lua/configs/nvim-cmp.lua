@@ -40,7 +40,7 @@ cmp.setup {
             require("luasnip").lsp_expand(args.body)
         end,
     },
-    window = g.re_nvim_style ~= "minimal" and {
+    window = g.re_nvim_border_style == "rounded" and {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     } or nil,
