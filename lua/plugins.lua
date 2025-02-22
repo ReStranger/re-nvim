@@ -417,4 +417,8 @@ require("lazy").setup {
         "andweeb/presence.nvim",
         event = "VeryLazy",
     },
+    {
+        "Exafunction/codeium.vim",
+        event = "VeryLazy",
+    },
 }
