@@ -2,6 +2,7 @@
 local api = vim.api
 local bo = vim.bo
 local diagnostic = vim.diagnostic
+local fn = vim.fn
 local g = vim.g
 local inspect = vim.inspect
 local lsp = vim.lsp
@@ -101,3 +102,17 @@ map(
 )
 map("n", "<leader>tL", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble Location List" })
 map("n", "<leader>tQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble Quickfix List" })
+
+-- AI
+map("i", "<C-g>", function()
+    return fn["codeium#Accept"]()
+end, { expr = true, silent = true })
+map("i", "<c-;>", function()
+    return fn["codeium#CycleCompletions"](1)
+end, { expr = true, silent = true })
+map("i", "<c-,>", function()
+    return fn["codeium#CycleCompletions"](-1)
+end, { expr = true, silent = true })
+map("i", "<c-x>", function()
+    return fn["codeium#Clear"]()
+end, { expr = true, silent = true })
