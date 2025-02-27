@@ -91,6 +91,13 @@ require("lazy").setup {
         cmd = "TransparentToggle",
     },
     {
+        "karb94/neoscroll.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("neoscroll").setup()
+        end,
+    },
+    {
         "folke/todo-comments.nvim",
         event = "VeryLazy",
         dependencies = "nvim-lua/plenary.nvim",
