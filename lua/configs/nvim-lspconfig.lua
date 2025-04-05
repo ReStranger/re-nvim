@@ -9,11 +9,10 @@ local lsp = vim.lsp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("mason-lspconfig").setup {
-
-    ensure_installed = {
+    ensure_installed = (os.getenv "FLAKE" == nil) and {
         "rust_analyzer",
-    },
-    automatic_installation = true,
+    } or {},
+    automatic_installation = os.getenv "FLAKE" == nil,
 }
 
 -- LSP settings (for overriding per client)
