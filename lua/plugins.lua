@@ -153,6 +153,18 @@ require("lazy").setup {
         opts = {},
     },
     {
+        "NeogitOrg/neogit",
+        cmd = "Neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+
+            "nvim-telescope/telescope.nvim",
+            "ibhagwan/fzf-lua",
+            "echasnovski/mini.pick",
+        },
+    },
+    {
         "jackMort/ChatGPT.nvim",
         event = "VeryLazy",
         config = function()
