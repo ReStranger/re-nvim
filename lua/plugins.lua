@@ -357,6 +357,7 @@ require("lazy").setup {
     {
         "mrcjkb/rustaceanvim",
         ft = { "rust" },
+        version = "^6",
         config = function()
             require "configs.rustaceanvim"
         end,
