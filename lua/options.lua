@@ -6,8 +6,8 @@ local wo = vim.wo
 
 -- Disable any visual plugins (like lualine and etc)
 g.re_nvim_style = "normal" -- normal | minimal
-g.re_nvim_border_style = "rounded" -- rounded | square | none
-g.re_nvim_theme = "catppuccin" -- catppuccin | gruvbox | none
+g.re_nvim_border_style = "none" -- rounded | square | none
+g.re_nvim_theme = "touka" -- catppuccin | gruvbox | touka | none
 
 -- Plugins
 g.re_nvim_dashboard = true

@@ -190,6 +190,13 @@ require("lazy").setup {
             require "configs.gruvbox"
         end,
     } or {},
+    g.re_nvim_theme == "touka" and {
+        "RRethy/base16-nvim",
+        priority = 1000,
+        config = function()
+            require "configs.base16-themes.touka"
+        end,
+    } or {},
     -- Inline
     {
         "nvim-treesitter/nvim-treesitter",
