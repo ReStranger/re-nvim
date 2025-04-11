@@ -433,7 +433,7 @@ require("lazy").setup {
         event = "VeryLazy",
     },
     {
-        "Exafunction/codeium.vim",
+        "Exafunction/windsurf.vim",
         event = "VeryLazy",
     },
 }
