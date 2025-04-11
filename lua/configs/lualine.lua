@@ -3,15 +3,53 @@
 -- MIT license, see LICENSE for more details.
 
 -- stylua: ignore
-local colors = {
-  blue   = "#80a0ff",
-  cyan   = "#a6e3a1",
-  black  = "#11111b",
-  white  = "#cdd6f4",
-  red    = "#f38ba8",
-  violet = "#cba6f7",
-  grey   = "#1e1e2e",
-}
+---@diagnostic disable: undefined-global
+local g = vim.g
+---@diagnostic enable: undefined-global
+
+local colors = {}
+
+if g.re_nvim_style == "catppuccin" then
+    colors = {
+        blue = "#80a0ff",
+        cyan = "#a6e3a1",
+        black = "#11111b",
+        white = "#cdd6f4",
+        red = "#f38ba8",
+        violet = "#cba6f7",
+        grey = "#1e1e2e",
+    }
+elseif g.re_nvim_style == "gruvbox" then
+    colors = {
+        blue = "#80a0ff",
+        cyan = "#a6e3a1",
+        black = "#11111b",
+        white = "#cdd6f4",
+        red = "#f38ba8",
+        violet = "#cba6f7",
+        grey = "#1e1e2e",
+    }
+elseif g.re_nvim_style == "touka" then
+    colors = {
+        blue = "#7aaaff",
+        cyan = "#55b682",
+        black = "#121214",
+        white = "#e9ecf2",
+        red = "#f25c5c",
+        violet = "#f38ba8",
+        grey = "#373740",
+    }
+else
+    colors = {
+        blue = "#80a0ff",
+        cyan = "#a6e3a1",
+        black = "#11111b",
+        white = "#cdd6f4",
+        red = "#f38ba8",
+        violet = "#cba6f7",
+        grey = "#1e1e2e",
+    }
+end
 
 local bubbles_theme = {
     normal = {
