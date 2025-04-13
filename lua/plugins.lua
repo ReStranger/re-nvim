@@ -165,16 +165,15 @@ require("lazy").setup {
         },
     },
     {
-        "jackMort/ChatGPT.nvim",
+        "olimorris/codecompanion.nvim",
         event = "VeryLazy",
         config = function()
-            require "configs.chatgpt"
+            require "configs.codecompanion"
         end,
+        opts = {},
         dependencies = {
-            "MunifTanjim/nui.nvim",
             "nvim-lua/plenary.nvim",
-            "folke/trouble.nvim",
-            "nvim-telescope/telescope.nvim",
+            "nvim-treesitter/nvim-treesitter",
         },
     },
     {
@@ -442,10 +441,6 @@ require("lazy").setup {
     },
     {
         "andweeb/presence.nvim",
-        event = "VeryLazy",
-    },
-    {
-        "Exafunction/windsurf.vim",
         event = "VeryLazy",
     },
 }

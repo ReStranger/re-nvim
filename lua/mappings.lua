@@ -104,15 +104,6 @@ map("n", "<leader>tL", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble Loca
 map("n", "<leader>tQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble Quickfix List" })
 
 -- AI
-map("i", "<C-g>", function()
-    return fn["codeium#Accept"]()
-end, { expr = true, silent = true })
-map("i", "<c-;>", function()
-    return fn["codeium#CycleCompletions"](1)
-end, { expr = true, silent = true })
-map("i", "<c-,>", function()
-    return fn["codeium#CycleCompletions"](-1)
-end, { expr = true, silent = true })
-map("i", "<c-x>", function()
-    return fn["codeium#Clear"]()
-end, { expr = true, silent = true })
+map("n", "<leader>cca", "<cmd>CodeCompanionActions<CR>", { desc = "CodeCompanion Actions" })
+map("n", "<leader>ccc", "<cmd>CodeCompanionChat<CR>", { desc = "CodeCompanion Chat" })
+map("n", "<leader>ccp", "<cmd>CodeCompanion<CR>", { desc = "CodeCompanion" })
