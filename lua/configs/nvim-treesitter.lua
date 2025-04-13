@@ -4,6 +4,7 @@ require("nvim-treesitter.configs").setup {
         "luadoc",
         "c",
         "cpp",
+        "cmake",
         "rust",
         "ron",
         "python",

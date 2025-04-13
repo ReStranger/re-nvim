@@ -43,6 +43,7 @@ local servers = {
     "cssls",
     "ts_ls",
     "clangd",
+    "cmake",
     "pyright",
     "ruff",
     "bashls",
@@ -75,9 +76,23 @@ lspconfig.pyright.setup {
 lspconfig.clangd.setup {
     cmd = {
         "clangd",
+        "--background-index",
+        "--header-insertion-decorators",
+        "--header-insertion=iwyu",
+        "--completion-style=detailed",
+        "--function-arg-placeholders",
+        "--fallback-style=llvm",
         "--clang-tidy",
-        "--clang-tidy-checks='google-,modernize-,performance-*'",
+        "--clang-tidy-checks=*",
         "--compile-commands-dir=.",
+        "--all-scopes-completion",
+        "--cross-file-rename",
+        "--pch-storage=memory",
+    },
+    init_options = {
+        usePlaceholders = true,
+        completeUnimported = true,
+        clangdFileStatus = true,
     },
 }
 
