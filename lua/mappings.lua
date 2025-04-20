@@ -39,6 +39,8 @@ map("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>", { desc = "Tmux Previous" })
 -- BufferLine
 map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Buffer next" })
 map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Buffer prev" })
+map("n", "gt", "<cmd>BufferLineCycleNext<CR>", { desc = "Buffer next" })
+map("n", "gT", "<cmd>BufferLineCyclePrev<CR>", { desc = "Buffer prev" })
 
 map("n", "<leader>tt", "<cmd>TransparentToggle<CR>", { desc = "Transparent Toggle" })
 
