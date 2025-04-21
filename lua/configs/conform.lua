@@ -16,7 +16,6 @@ local options = {
         cpp = { "clang_format" },
         markdown = { "prettierd" },
         markdown_inline = { "prettierd" },
-        nix = { "nixpkgs-fmt" },
     },
 
     format_on_save = {

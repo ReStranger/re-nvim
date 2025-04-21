@@ -117,3 +117,13 @@ lspconfig.ts_ls.setup {
         },
     },
 }
+
+lspconfig.nixd.setup {
+    settings = {
+        nixd = {
+            formatting = {
+                command = { "nixfmt" },
+            },
+        },
+    },
+}
