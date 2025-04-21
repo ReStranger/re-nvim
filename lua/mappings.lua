@@ -104,6 +104,6 @@ map("n", "<leader>tL", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble Loca
 map("n", "<leader>tQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble Quickfix List" })
 
 -- AI
-map("n", "<leader>cca", "<cmd>CodeCompanionActions<CR>", { desc = "CodeCompanion Actions" })
-map("n", "<leader>ccc", "<cmd>CodeCompanionChat<CR>", { desc = "CodeCompanion Chat" })
-map("n", "<leader>ccp", "<cmd>CodeCompanion<CR>", { desc = "CodeCompanion" })
+map({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<CR>", { desc = "CodeCompanion Actions" })
+map({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat<CR>", { desc = "CodeCompanion Chat" })
+map({ "n", "v" }, "<leader>cp", "<cmd>CodeCompanion<CR>", { desc = "CodeCompanion" })
