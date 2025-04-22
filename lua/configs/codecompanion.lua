@@ -1,4 +1,7 @@
 require("codecompanion").setup {
+    opts = {
+        language = "Russian",
+    },
     strategies = {
         chat = {
             adapter = "weegam_openai",
@@ -16,6 +19,9 @@ require("codecompanion").setup {
                 },
             },
         },
+        cmd = {
+            adapter = "weegam_openai",
+        },
     },
     adapters = {
         weegam_openai = function()
@@ -28,7 +34,7 @@ require("codecompanion").setup {
                 },
                 schema = {
                     model = {
-                        default = "o3-mini", -- define llm model to be used
+                        default = "gpt-4o", -- define llm model to be used
                     },
                 },
             })

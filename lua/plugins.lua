@@ -106,8 +106,8 @@ require("lazy").setup {
         end,
     },
     {
-        "MeanderingProgrammer/markdown.nvim",
-        ft = { "markdown", "markdown_inline" },
+        "MeanderingProgrammer/render-markdown.nvim",
+        ft = { "markdown", "markdown_inline", "codecompanion" },
         dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
         config = function()
             require("render-markdown").setup {}
