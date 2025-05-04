@@ -28,6 +28,13 @@ diagnostic.config {
     },
 }
 
+diagnostic.config {
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+}
+
 -- To instead override globally
 local orig_util_open_floating_preview = lsp.util.open_floating_preview
 function lsp.util.open_floating_preview(contents, syntax, opts, ...)
