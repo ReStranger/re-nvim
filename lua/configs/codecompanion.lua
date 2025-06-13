@@ -34,7 +34,7 @@ require("codecompanion").setup {
                 },
                 schema = {
                     model = {
-                        default = "gpt-4o", -- define llm model to be used
+                        default = "gpt-4.1", -- define llm model to be used
                     },
                 },
             })
