@@ -84,6 +84,12 @@ api.nvim_create_autocmd("LspAttach", {
         end, opts, { desc = "LSP Buffer format" })
     end,
 })
+map("n", "<leader>lf", function()
+    require("conform").format {
+        timeout_ms = 500,
+        lsp_fallback = true,
+    }
+end, { desc = "LSP Formal buffer" })
 
 -- DAP
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", { desc = "DAP Toggle breakpoint" })
