@@ -51,6 +51,7 @@ local servers = {
     "ts_ls",
     "clangd",
     "cmake",
+    "qmlls",
     "pyright",
     "ruff",
     "bashls",

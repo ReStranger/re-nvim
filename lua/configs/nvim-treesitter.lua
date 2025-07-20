@@ -5,6 +5,7 @@ require("nvim-treesitter.configs").setup {
         "c",
         "cpp",
         "cmake",
+        "qmljs",
         "blueprint",
         "rust",
         "ron",
