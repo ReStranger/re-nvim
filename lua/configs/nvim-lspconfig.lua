@@ -102,6 +102,17 @@ lspconfig.clangd.setup {
         completeUnimported = true,
         clangdFileStatus = true,
     },
+    settings = {
+        clangd = {
+            InlayHints = {
+                Designators = true,
+                Enabled = true,
+                ParameterNames = true,
+                DeducedTypes = true,
+            },
+            fallbackFlags = { "-std=c++20" },
+        },
+    },
 }
 
 local function organize_imports()
@@ -122,6 +133,15 @@ lspconfig.ts_ls.setup {
         OrganizeImports = {
             organize_imports,
             description = "Organize Imports",
+        },
+    },
+}
+lspconfig.lua_ls.setup {
+    settings = {
+        Lua = {
+            hint = {
+                enable = true,
+            },
         },
     },
 }

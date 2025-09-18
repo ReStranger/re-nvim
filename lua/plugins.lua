@@ -72,6 +72,14 @@ require("lazy").setup {
             require "configs.ufo"
         end,
     },
+    {
+        "MysticalDevil/inlay-hints.nvim",
+        event = "LspAttach",
+        dependencies = { "neovim/nvim-lspconfig" },
+        config = function()
+            require("inlay-hints").setup()
+        end,
+    },
     g.re_nvim_noice == true and {
         "folke/noice.nvim",
         event = "VeryLazy",
