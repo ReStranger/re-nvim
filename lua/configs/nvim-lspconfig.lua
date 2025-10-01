@@ -43,7 +43,7 @@ function lsp.util.open_floating_preview(contents, syntax, opts, ...)
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-local lspconfig = require "lspconfig"
+-- local lspconfig = require "lspconfig"
 local servers = {
     "lua_ls",
     "html",
@@ -61,14 +61,16 @@ local servers = {
 }
 
 -- lsps with default config
-for _, a in ipairs(servers) do
-    lspconfig[a].setup {
+for _, name in ipairs(servers) do
+    lsp.config(name, {
         handlers = handlers,
         capabilities = capabilities,
-    }
+    })
+    lsp.enable(name)
 end
 
-lspconfig.pyright.setup {
+
+lsp.config("pyright", {
     settings = {
         pyright = {
             disableOrganizeImports = true,
@@ -79,9 +81,9 @@ lspconfig.pyright.setup {
             },
         },
     },
-}
+})
 
-lspconfig.clangd.setup {
+lsp.config("clangd", {
     cmd = {
         "clangd",
         "--background-index",
@@ -113,7 +115,7 @@ lspconfig.clangd.setup {
             fallbackFlags = { "-std=c++20" },
         },
     },
-}
+})
 
 local function organize_imports()
     local params = {
@@ -123,7 +125,7 @@ local function organize_imports()
     buf.execute_command(params)
 end
 
-lspconfig.ts_ls.setup {
+lsp.config("ts_ls", {
     init_options = {
         preferences = {
             disableSuggestions = true,
@@ -135,8 +137,9 @@ lspconfig.ts_ls.setup {
             description = "Organize Imports",
         },
     },
-}
-lspconfig.lua_ls.setup {
+})
+
+lsp.config("lua_ls", {
     settings = {
         Lua = {
             hint = {
@@ -144,9 +147,9 @@ lspconfig.lua_ls.setup {
             },
         },
     },
-}
+})
 
-lspconfig.nixd.setup {
+lsp.config("nixd", {
     settings = {
         nixd = {
             formatting = {
@@ -154,4 +157,4 @@ lspconfig.nixd.setup {
             },
         },
     },
-}
+})
