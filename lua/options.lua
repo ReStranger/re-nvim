@@ -38,8 +38,6 @@ opt.relativenumber = true
 opt.splitbelow = true
 opt.splitright = true
 
-opt.shortmess:append "c"
-
 opt.expandtab = true
 opt.tabstop = 4
 opt.shiftwidth = 4
