@@ -175,6 +175,7 @@ require("lazy").setup {
     {
         "olimorris/codecompanion.nvim",
         event = "VeryLazy",
+        version = "v17.33.0",
         config = function()
             require "configs.codecompanion"
         end,
