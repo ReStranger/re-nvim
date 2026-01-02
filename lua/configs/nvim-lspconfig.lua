@@ -94,7 +94,7 @@ lsp.config("clangd", {
         "--fallback-style=llvm",
         "--clang-tidy",
         "--clang-tidy-checks=*",
-        "--compile-commands-dir=.",
+        "--compile-commands-dir=./build",
         "--all-scopes-completion",
         "--cross-file-rename",
         "--pch-storage=memory",
