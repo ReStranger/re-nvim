@@ -1,4 +1,5 @@
 ---@diagnostic disable: undefined-global
+local diagnostic = vim.diagnostic
 local opt = vim.opt
 local g = vim.g
 local wo = vim.wo
@@ -6,7 +7,7 @@ local wo = vim.wo
 
 -- Disable any visual plugins (like lualine and etc)
 g.re_nvim_style = "normal" -- normal | minimal
-g.re_nvim_border_style = "none" -- rounded | square | none
+g.re_nvim_border_style = "rounded" -- rounded | square | none
 g.re_nvim_theme = "touka" -- catppuccin | gruvbox | touka | none
 
 -- Plugins
@@ -43,3 +44,15 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 4
 opt.smartindent = true
+
+
+diagnostic.config({
+  signs = {
+    text = {
+      [diagnostic.severity.ERROR] = "",
+      [diagnostic.severity.WARN]  = "",
+      [diagnostic.severity.HINT]  = "󰌵",
+      [diagnostic.severity.INFO]  = "",
+    },
+  },
+})

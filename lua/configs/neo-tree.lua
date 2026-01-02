@@ -1,12 +1,3 @@
----@diagnostic disable: undefined-global
-local fn = vim.fn
----@diagnostic enable: undefined-global
-
-fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
-
 require("neo-tree").setup {
     sources = {
         "filesystem",
