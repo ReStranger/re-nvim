@@ -452,4 +452,11 @@ require("lazy").setup {
         "andweeb/presence.nvim",
         event = "VeryLazy",
     },
+    {
+        "3rd/image.nvim",
+        event = "VeryLazy",
+        config = function()
+            require "configs.image"
+        end,
+    },
 }
