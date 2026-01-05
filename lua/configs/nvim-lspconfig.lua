@@ -22,17 +22,22 @@ local handlers = g.re_nvim_border_style == "rounded"
             ["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, { border = "rounded" }),
         }
     or {}
+
 diagnostic.config {
     float = {
         border = "rounded",
     },
-}
-
-diagnostic.config {
-    virtual_text = true,
-    signs = true,
+    signs = {
+        text = {
+            [diagnostic.severity.ERROR] = "",
+            [diagnostic.severity.HINT] = "󰌵",
+            [diagnostic.severity.INFO] = "",
+            [diagnostic.severity.WARN] = "",
+        },
+    },
     underline = true,
     update_in_insert = false,
+    virtual_text = true,
 }
 
 -- To instead override globally
@@ -68,7 +73,6 @@ for _, name in ipairs(servers) do
     })
     lsp.enable(name)
 end
-
 
 lsp.config("pyright", {
     settings = {
