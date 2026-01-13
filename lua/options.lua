@@ -1,6 +1,7 @@
 ---@diagnostic disable: undefined-global
 local opt = vim.opt
 local g = vim.g
+local o = vim.o
 local wo = vim.wo
 ---@diagnostic enable: undefined-global
 
@@ -18,6 +19,7 @@ opt.cursorline = true
 opt.colorcolumn = "120"
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+o.winborder = "rounded" -- "rounded | "single" | "none"
 
 wo.number = true
 wo.relativenumber = true
