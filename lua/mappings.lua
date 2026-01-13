@@ -2,7 +2,6 @@
 local api = vim.api
 local bo = vim.bo
 local diagnostic = vim.diagnostic
-local fn = vim.fn
 local g = vim.g
 local inspect = vim.inspect
 local lsp = vim.lsp
@@ -68,7 +67,6 @@ api.nvim_create_autocmd("LspAttach", {
         map("n", "gd", lsp.buf.definition, opts, { desc = "LSP Go to definition" })
         map("n", "K", lsp.buf.hover, opts, { desc = "LSP Show hover" })
         map("n", "gi", lsp.buf.implementation, opts, { desc = "LSP Go to implementation" })
-        map("n", "<C-k>", lsp.buf.signature_help, opts, { desc = "LSP Show signature help" })
 
         map("n", "<space>sa", lsp.buf.add_workspace_folder, opts, { desc = "LSP Add workspace folder" })
         map("n", "<space>sr", lsp.buf.remove_workspace_folder, opts, { desc = "LSP Remove workspace folder" })
