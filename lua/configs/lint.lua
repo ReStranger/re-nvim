@@ -11,6 +11,9 @@ require("lint").linters_by_ft = {
     typescriptreact = { "eslint_d" },
     javascriptreact = { "eslint_d" },
     python = { "mypy" },
+    nix = { "deadnix", "nix" },
+    sh = { "shellcheck" },
+    zsh = {"zsh"},
 }
 
 api.nvim_create_autocmd({ "BufWritePost" }, {
