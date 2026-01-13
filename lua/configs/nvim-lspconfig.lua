@@ -2,11 +2,8 @@
 local api = vim.api
 local buf = vim.buf
 local diagnostic = vim.diagnostic
-local g = vim.g
 local lsp = vim.lsp
 ---@diagnostic enable: undefined-global
-
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("mason-lspconfig").setup {
     ensure_installed = (os.getenv "NH_FLAKE" == nil) and {
@@ -14,14 +11,6 @@ require("mason-lspconfig").setup {
     } or {},
     automatic_installation = os.getenv "NH_FLAKE" == nil,
 }
-
--- LSP settings (for overriding per client)
-local handlers = g.re_nvim_border_style == "rounded"
-        and {
-            ["textDocument/hover"] = lsp.with(lsp.handlers.hover, { border = "rounded" }),
-            ["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, { border = "rounded" }),
-        }
-    or {}
 
 diagnostic.config {
     float = {
@@ -40,14 +29,6 @@ diagnostic.config {
     virtual_text = true,
 }
 
--- To instead override globally
-local orig_util_open_floating_preview = lsp.util.open_floating_preview
-function lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.border = opts.border or border
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 -- local lspconfig = require "lspconfig"
 local servers = {
     "lua_ls",
@@ -65,14 +46,7 @@ local servers = {
     "hyprls",
 }
 
--- lsps with default config
-for _, name in ipairs(servers) do
-    lsp.config(name, {
-        handlers = handlers,
-        capabilities = capabilities,
-    })
-    lsp.enable(name)
-end
+lsp.enable(servers)
 
 lsp.config("pyright", {
     settings = {
