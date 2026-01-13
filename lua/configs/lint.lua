@@ -3,7 +3,7 @@ local api = vim.api
 ---@diagnostic enable: undefined-global
 
 require("mason-nvim-lint").setup {
-    automatic_installation = true,
+    automatic_installation = os.getenv "NH_FLAKE" == nil,
 }
 require("lint").linters_by_ft = {
     javascript = { "eslint_d" },
