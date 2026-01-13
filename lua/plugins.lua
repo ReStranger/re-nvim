@@ -203,7 +203,6 @@ require("lazy").setup {
     g.re_nvim_theme == "gruvbox" and {
         "ellisonleao/gruvbox.nvim",
         priority = 1000,
-        config = true,
         opts = ...,
         config = function()
             require "configs.gruvbox"
