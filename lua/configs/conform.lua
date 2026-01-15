@@ -1,5 +1,5 @@
 require("mason-conform").setup {
-    automatic_installation = true,
+    automatic_installation = os.getenv "NH_FLAKE" == nil,
 }
 
 local options = {
