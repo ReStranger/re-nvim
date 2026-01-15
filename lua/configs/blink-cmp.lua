@@ -20,6 +20,7 @@ return {
     },
 
     appearance = {
+        use_nvim_cmp_as_default = false,
         nerd_font_variant = "mono",
         kind_icons = {
             Text = "",
@@ -84,7 +85,6 @@ return {
                     { "kind_icon", gap = 1 },
                     { "label", "label_description" },
                 },
-                treesitter = { "lsp" },
             },
         },
         documentation = {
