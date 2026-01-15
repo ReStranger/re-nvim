@@ -2,6 +2,45 @@
 local g = vim.g
 ---@diagnostic enable: undefined-global
 
+local theme = {
+    catppuccin = {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        config = function()
+            require "configs.catppuccin"
+        end,
+    },
+    gruvbox = {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        opts = ...,
+        config = function()
+            require "configs.gruvbox"
+        end,
+    },
+    touka = {
+        "ReStranger/base16-nvim",
+        branch = "blink-cmp-support",
+        priority = 1000,
+        config = function()
+            require "configs.base16-themes.touka"
+        end,
+    },
+    none = {},
+}
+local style = {
+    normal = {
+        "nvim-lualine/lualine.nvim",
+        event = { "BufReadPost", "BufNewFile" },
+        dependencies = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require "configs.lualine"
+        end,
+    },
+    minimal = {},
+}
+
 require("lazy").setup {
     -- UI/UX
     {
@@ -24,14 +63,7 @@ require("lazy").setup {
             require "configs.bufferline"
         end,
     },
-    g.re_nvim_style ~= "minimal" and {
-        "nvim-lualine/lualine.nvim",
-        event = { "BufReadPost", "BufNewFile" },
-        dependencies = "nvim-tree/nvim-web-devicons",
-        config = function()
-            require "configs.lualine"
-        end,
-    } or {},
+    style[g.re_nvim_style],
     g.re_nvim_statuscol == true and {
         "luukvbaal/statuscol.nvim",
         event = "VeryLazy",
@@ -191,30 +223,7 @@ require("lazy").setup {
             require "configs.gitsigns"
         end,
     },
-    g.re_nvim_theme == "catppuccin" and {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-        config = function()
-            require "configs.catppuccin"
-        end,
-    } or {},
-
-    g.re_nvim_theme == "gruvbox" and {
-        "ellisonleao/gruvbox.nvim",
-        priority = 1000,
-        opts = ...,
-        config = function()
-            require "configs.gruvbox"
-        end,
-    } or {},
-    g.re_nvim_theme == "touka" and {
-        "RRethy/base16-nvim",
-        priority = 1000,
-        config = function()
-            require "configs.base16-themes.touka"
-        end,
-    } or {},
+    theme[g.re_nvim_theme],
     -- Inline
     {
         "nvim-treesitter/nvim-treesitter",
