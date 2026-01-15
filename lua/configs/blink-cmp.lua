@@ -1,3 +1,7 @@
+---@diagnostic disable: undefined-global
+local bo = vim.bo
+---@diagnostic enable: undefined-global
+
 return {
     -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
     -- 'super-tab' for mappings similar to vscode (tab to accept)
@@ -97,7 +101,24 @@ return {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+        default = { "lsp", "path", "snippets", "buffer", "env" },
+        providers = {
+            env = {
+                name = "Env",
+                module = "blink-cmp-env",
+                opts = {
+                    show_braces = false,
+                    show_documentation_window = true,
+                },
+            },
+            conventional_commits = {
+                name = "Conventional Commits",
+                module = "blink-cmp-conventional-commits",
+                enabled = function()
+                    return bo.filetype == "gitcommit"
+                end,
+            },
+        },
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

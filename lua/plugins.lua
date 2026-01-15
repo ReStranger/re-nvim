@@ -326,7 +326,11 @@ require("lazy").setup {
     -- Base function
     {
         "saghen/blink.cmp",
-        dependencies = { "rafamadriz/friendly-snippets" },
+        dependencies = {
+            "rafamadriz/friendly-snippets",
+            "bydlw98/blink-cmp-env",
+            "disrupted/blink-cmp-conventional-commits",
+        },
         version = "1.*",
         event = "InsertEnter",
         opts = require "configs.blink-cmp",
