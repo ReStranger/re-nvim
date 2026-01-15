@@ -146,11 +146,11 @@ require("lazy").setup {
         end,
     },
     {
-        "MeanderingProgrammer/render-markdown.nvim",
-        ft = { "markdown", "markdown_inline", "codecompanion" },
-        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+        "OXY2DEV/markview.nvim",
+        ft = { "markdown", "markdown_inline", "latex", "html" },
+        -- dependencies = { "saghen/blink.cmp" },
         config = function()
-            require("render-markdown").setup {}
+            require "configs.markview"
         end,
     },
 
