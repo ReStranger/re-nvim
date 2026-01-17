@@ -110,6 +110,26 @@ map("n", "<leader>tL", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble Loca
 map("n", "<leader>tQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble Quickfix List" })
 
 -- AI
-map({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<CR>", { desc = "CodeCompanion Actions" })
-map({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat<CR>", { desc = "CodeCompanion Chat" })
-map({ "n", "v" }, "<leader>cp", "<cmd>CodeCompanion<CR>", { desc = "CodeCompanion" })
+map(
+    { "n", "v" },
+    "<leader>ca",
+    "<cmd>CodeCompanionActions<CR>",
+    { desc = "CodeCompanion Actions" },
+    { noremap = true, silent = true }
+)
+map(
+    { "n", "v" },
+    "<leader>cc",
+    "<cmd>CodeCompanionChat<CR>",
+    { desc = "CodeCompanion Chat" },
+    { noremap = true, silent = true }
+)
+map(
+    { "n", "v" },
+    "<leader>ct",
+    "<cmd>CodeCompanionChat Toggle<CR>",
+    { desc = "CodeCompanion Chat" },
+    { noremap = true, silent = true }
+)
+map({ "n", "v" }, "<leader>cp", "<cmd>CodeCompanion<CR>", { desc = "CodeCompanion" }, { noremap = true, silent = true })
+map("v", "<leader>da", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })

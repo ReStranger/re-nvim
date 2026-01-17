@@ -141,4 +141,3 @@ require("codecompanion").setup {
         },
     },
 }
-vim.keymap.set("v", "<leader>da", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
