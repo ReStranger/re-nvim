@@ -23,7 +23,6 @@ require("markview").setup {
 
     markdown = {
         enable = true,
-        headings = require("markview.presets").headings.marker,
         horizontal_rules = require("markview.presets").horizontal_rules.thin,
         tables = (function()
             if g.re_nvim_border_style == "none" then
@@ -42,7 +41,8 @@ require("markview").setup {
         enable = true,
         enable_hybrid_mode = true,
         icon_provider = "devicons",
-        filetypes = { "markdown", "markdown_inline", "latex", "html" },
+        filetypes = { "markdown", "markdown_inline", "codecompanion", "latex", "html" },
+        ignore_buftypes = {},
     },
     typst = { enable = false },
     yaml = { enable = true },

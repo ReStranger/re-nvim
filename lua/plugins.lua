@@ -147,8 +147,7 @@ require("lazy").setup {
     },
     {
         "OXY2DEV/markview.nvim",
-        ft = { "markdown", "markdown_inline", "latex", "html" },
-        -- dependencies = { "saghen/blink.cmp" },
+        ft = { "markdown", "markdown_inline", "codecompanion", "latex", "html" },
         config = function()
             require "configs.markview"
         end,
