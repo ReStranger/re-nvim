@@ -1,4 +1,4 @@
-require("mason-nvim-dap").setup {
+return {
     ensure_installed = {
         "python",
         "codelldb",

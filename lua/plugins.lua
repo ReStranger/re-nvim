@@ -52,16 +52,12 @@ require("lazy").setup {
             "MunifTanjim/nui.nvim",
             "s1n7ax/nvim-window-picker",
         },
-        config = function()
-            require "configs.neo-tree"
-        end,
+        opts = require "configs.neo-tree",
     },
     {
         "akinsho/bufferline.nvim",
         dependencies = "nvim-tree/nvim-web-devicons",
-        config = function()
-            require "configs.bufferline"
-        end,
+        opts = require "configs.bufferline",
     },
     style[g.re_nvim_style],
     g.re_nvim_statuscol == true and {
@@ -98,9 +94,7 @@ require("lazy").setup {
         "kevinhwang91/nvim-ufo",
         event = { "BufReadPost", "BufNewFile" },
         dependencies = "kevinhwang91/promise-async",
-        config = function()
-            require "configs.ufo"
-        end,
+        opts = require "configs.ufo",
     },
     {
         "MysticalDevil/inlay-hints.nvim",
@@ -113,16 +107,14 @@ require("lazy").setup {
     g.re_nvim_noice == true and {
         "folke/noice.nvim",
         event = "VeryLazy",
-        opts = {},
         dependencies = "MunifTanjim/nui.nvim",
+        opts = {},
     } or {},
     g.re_nvim_dashboard == true and {
         "nvimdev/dashboard-nvim",
         event = "VimEnter",
-        config = function()
-            require "configs.dashboard"
-        end,
         dependencies = "nvim-tree/nvim-web-devicons",
+        opts = require "configs.dashboard",
     } or {},
     {
         "xiyaowong/transparent.nvim",
@@ -187,7 +179,6 @@ require("lazy").setup {
     {
         "folke/trouble.nvim",
         cmd = "Trouble",
-        opts = {},
     },
     {
         "NeogitOrg/neogit",
@@ -204,21 +195,16 @@ require("lazy").setup {
     {
         "olimorris/codecompanion.nvim",
         cmd = { "CodeCompanion", "CodeCompanionActions", "CodeCompanionChat", "CodeCompanionCmd" },
-        config = function()
-            require "configs.codecompanion"
-        end,
-        opts = {},
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
         },
+        opts = require "configs.codecompanion",
     },
     {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
-        config = function()
-            require "configs.gitsigns"
-        end,
+        opts = require "configs.gitsigns",
     },
     theme[g.re_nvim_theme],
     -- Inline
@@ -288,9 +274,7 @@ require("lazy").setup {
             "williamboman/mason.nvim",
             "mfussenegger/nvim-dap",
         },
-        config = function()
-            require "configs.mason-dap-nvim"
-        end,
+        opts = require "configs.mason-dap-nvim",
     },
     {
         "mfussenegger/nvim-dap-python",
@@ -309,9 +293,7 @@ require("lazy").setup {
     {
         "williamboman/mason.nvim",
         cmd = { "Mason" },
-        config = function()
-            require "configs.mason"
-        end,
+        opts = require "configs.mason",
     },
     {
         "folke/which-key.nvim",
@@ -344,9 +326,7 @@ require("lazy").setup {
     },
     {
         "max397574/better-escape.nvim",
-        config = function()
-            require "configs.better-escape"
-        end,
+        opts = require "configs.better-escape",
     },
     -- Rust
     {
@@ -428,8 +408,6 @@ require("lazy").setup {
     {
         "3rd/image.nvim",
         event = "VeryLazy",
-        config = function()
-            require "configs.image"
-        end,
+        opts = require "configs.image",
     },
 }

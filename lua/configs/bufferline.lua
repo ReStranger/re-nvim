@@ -3,7 +3,7 @@ local opt = vim.opt
 ---@diagnostic enable: undefined-global
 
 opt.termguicolors = true
-require("bufferline").setup {
+return {
     options = {
         hover = {
             enabled = true,
