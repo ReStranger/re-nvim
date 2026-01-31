@@ -75,8 +75,6 @@ require("lazy").setup {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPost", "BufNewFile" },
         main = "ibl",
-        ---@module "ibl"
-        ---@type ibl.config
         opts = {},
         config = function()
             require("ibl").setup { scope = { highlight = "@function" } }
@@ -205,7 +203,7 @@ require("lazy").setup {
     },
     {
         "olimorris/codecompanion.nvim",
-        event = "VeryLazy",
+        cmd = { "CodeCompanion", "CodeCompanionActions", "CodeCompanionChat", "CodeCompanionCmd" },
         config = function()
             require "configs.codecompanion"
         end,
@@ -226,7 +224,7 @@ require("lazy").setup {
     -- Inline
     {
         "nvim-treesitter/nvim-treesitter",
-        event = { "BufReadPost", "BufNewFile" },
+        event = { "VeryLazy" },
         cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
         build = ":TSUpdate",
         config = function()
@@ -235,7 +233,7 @@ require("lazy").setup {
     },
     {
         "neovim/nvim-lspconfig",
-        event = "User FilePost",
+        event = "VeryLazy",
         dependencies = "williamboman/mason-lspconfig.nvim",
         config = function()
             require "configs.nvim-lspconfig"
@@ -374,7 +372,6 @@ require("lazy").setup {
     -- Web
     {
         "windwp/nvim-ts-autotag",
-        event = "InsertEnter",
         dependencies = "luukvbaal/statuscol.nvim",
         ft = {
             "astro",
@@ -399,7 +396,6 @@ require("lazy").setup {
     },
     {
         "pmizio/typescript-tools.nvim",
-        event = "VeryLazy",
         ft = {
             "astro",
             "glimmer",
@@ -432,7 +428,6 @@ require("lazy").setup {
     {
         "3rd/image.nvim",
         event = "VeryLazy",
-        ft = { "markdown", "markdown_inline", "codecompanion", "html" },
         config = function()
             require "configs.image"
         end,
