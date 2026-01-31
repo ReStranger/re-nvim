@@ -4,7 +4,7 @@ local cmd = vim.cmd
 
 cmd [[cab cc CodeCompanion]]
 
-require("codecompanion").setup {
+return {
     opts = {
         language = "Russian",
     },

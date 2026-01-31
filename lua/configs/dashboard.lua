@@ -1,4 +1,4 @@
-require("dashboard").setup {
+return {
     theme = "hyper",
     config = {
         week_header = {

@@ -1,4 +1,4 @@
-require("neo-tree").setup {
+return {
     sources = {
         "filesystem",
         "git_status",
