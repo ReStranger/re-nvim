@@ -1,3 +1,17 @@
+require("base16-colorscheme").with_config {
+    telescope = true,
+    telescope_borders = true,
+    indentblankline = true,
+    notify = true,
+    ts_rainbow = true,
+    cmp = false,
+    blink = true,
+    illuminate = true,
+    lsp_semantic = true,
+    mini_completion = true,
+    dapui = true,
+    diffview = true,
+}
 require("base16-colorscheme").setup {
     base00 = "#121214",
     base01 = "#212126",
