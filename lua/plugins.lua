@@ -209,7 +209,6 @@ require("lazy").setup {
     {
         "nvim-treesitter/nvim-treesitter",
         event = { "VeryLazy" },
-        cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
         build = ":TSUpdate",
         config = function()
             require "configs.nvim-treesitter"
