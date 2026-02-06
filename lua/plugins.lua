@@ -321,6 +321,7 @@ require("lazy").setup {
         opts = require "configs.blink-cmp",
         opts_extend = { "sources.default" },
     },
+    { "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
     {
         "max397574/better-escape.nvim",
         opts = require "configs.better-escape",
