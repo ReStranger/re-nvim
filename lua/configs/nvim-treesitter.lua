@@ -1,5 +1,4 @@
-require("nvim-treesitter.configs").setup {
-    ensure_installed = {
+require("nvim-treesitter").install {
         "lua",
         "luadoc",
         "c",
@@ -39,13 +38,4 @@ require("nvim-treesitter.configs").setup {
         "gitattributes",
         "gitcommit",
         "gitignore",
-    },
-
-    sync_install = false,
-
-    auto_install = false,
-
-    highlight = {
-        enable = true,
-    },
 }
