@@ -111,12 +111,28 @@ return {
                     show_documentation_window = true,
                 },
             },
-            conventional_commits = {
-                name = "Conventional Commits",
-                module = "blink-cmp-conventional-commits",
-                enabled = function()
-                    return bo.filetype == "gitcommit"
-                end,
+            dictionary = {
+                module = "blink-cmp-dictionary",
+                name = "Dict",
+                min_keyword_length = 3,
+            },
+            git = {
+                module = "blink-cmp-git",
+                name = "Git",
+            },
+            css_vars = {
+                name = "css-vars",
+                module = "css-vars.blink",
+                opts = {
+                    search_extensions = { ".js", ".ts", ".jsx", ".tsx" },
+                },
+            },
+            latex = {
+                name = "Latex",
+                module = "blink-cmp-latex",
+                opts = {
+                    insert_command = false,
+                },
             },
         },
     },
