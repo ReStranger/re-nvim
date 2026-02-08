@@ -5,7 +5,7 @@ require("nvim-treesitter").install {
         "cpp",
         "cmake",
         "qmljs",
-        "blueprint",
+        "bp",
         "rust",
         "ron",
         "python",
@@ -26,7 +26,6 @@ require("nvim-treesitter").install {
         "yaml",
         "toml",
         "json",
-        "jsonc",
         "hyprlang",
 
         "markdown",
