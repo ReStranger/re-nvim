@@ -59,7 +59,7 @@ return {
                     },
                     schema = {
                         model = {
-                            default = "gemeni-pro-preview",
+                            default = "gemeni-3-pro-preview",
                             choices = {},
                         },
                     },
@@ -74,65 +74,24 @@ return {
                     },
                     schema = {
                         model = {
-                            default = "qwen/qwen3-coder:free",
+                            default = "nvidia/nemotron-3-nano-30b-a3b:free",
                             choices = {
-                                -- Arcee AI
-                                ["arcee-ai/trinity-mini:free"] = {},
+                                ["qwen/qwen3-next-80b-a3b-instruct:free"] = {},
+                                ["qwen/qwen3-coder:free"] = {},
+                                ["qwen/qwen3-4b:free"] = {},
 
-                                -- Cognitive Computations
-                                ["cognitivecomputations/dolphin-mistral-24b-venice-edition:free"] = {},
-
-                                -- Google
-                                ["google/gemini-2.0-flash-exp:free"] = {},
-                                ["google/gemma-3-27b-it:free"] = {},
-                                ["google/gemma-3-12b-it:free"] = {},
-                                ["google/gemma-3-4b-it:free"] = {},
-                                ["google/gemma-3n-e4b-it:free"] = {},
-                                ["google/gemma-3n-e2b-it:free"] = {},
-
-                                -- Meta (Llama)
-                                ["meta-llama/llama-3.1-405b-instruct:free"] = {},
-                                ["meta-llama/llama-3.3-70b-instruct:free"] = {},
-                                ["meta-llama/llama-3.2-3b-instruct:free"] = {},
-
-                                -- Mistral AI
-                                ["mistralai/devstral-2512:free"] = {},
-                                ["mistralai/mistral-small-3.1-24b-instruct:free"] = {},
-                                ["mistralai/mistral-7b-instruct:free"] = {},
-
-                                -- Moonshot AI
-                                ["moonshotai/kimi-k2:free"] = {},
-
-                                -- Nex AGI
-                                ["nex-agi/deepseek-v3.1-nex-n1:free"] = {},
-
-                                -- Nous Research
-                                ["nousresearch/hermes-3-llama-3.1-405b:free"] = {},
-
-                                -- NVIDIA
-                                ["nvidia/nemotron-3-nano-30b-a3b:free"] = {},
-                                ["nvidia/nemotron-nano-12b-v2-vl:free"] = {},
-                                ["nvidia/nemotron-nano-9b-v2:free"] = {},
-
-                                -- OpenAI (OSS models)
                                 ["openai/gpt-oss-120b:free"] = {},
                                 ["openai/gpt-oss-20b:free"] = {},
 
-                                -- Qwen
-                                ["qwen/qwen3-coder:free"] = {},
-                                ["qwen/qwen-2.5-vl-7b-instruct:free"] = {},
-                                ["qwen/qwen3-4b:free"] = {},
+                                ["google/gemma-3n-e2b-it:free"] = {},
 
-                                -- TNG Tech
-                                ["tngtech/deepseek-r1t2-chimera:free"] = {},
-                                ["tngtech/deepseek-r1t-chimera:free"] = {},
-                                ["tngtech/tng-r1t-chimera:free"] = {},
+                                ["deepseek/deepseek-r1-0528:free"] = {},
 
-                                -- Xiaomi
-                                ["xiaomi/mimo-v2-flash:free"] = {},
+                                ["mistralai/mistral-small-3.1-24b-instruct:free"] = {},
 
-                                -- Z-AI
-                                ["z-ai/glm-4.5-air:free"] = {},
+                                ["meta-llama/llama-3.3-70b-instruct:free"] = {},
+                                ["meta-llama/llama-3.2-3b-instruct:free"] = {},
+                                ["nvidia/nemotron-3-nano-30b-a3b:free"] = {},
                             },
                         },
                     },
