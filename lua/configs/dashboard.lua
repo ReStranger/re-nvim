@@ -1,9 +1,6 @@
 return {
-    theme = "hyper",
+    theme = "doom",
     config = {
-        week_header = {
-            enable = false,
-        },
         header = {
             " ██▀███  ▓█████ ▒▓▒  ███▄    █ ██▒   █▓ ██▓ ███▄ ▄███▓",
             "▓██ ▒ ██▒▓█   ▀  ▒   ██ ▀█   █▓██░   █▒▓██▒▓██▒▀█▀ ██▒",
@@ -16,14 +13,24 @@ return {
             "   ░        ░                ░      ░   ░         ░   ",
             "                                                      ",
         },
-        shortcut = {
-            { desc = "[  Github]", group = "DashboardShortCut" },
-            { desc = "[  ReStranger]", group = "DashboardShortCut" },
-            { desc = "[  0.0.1]", group = "DashboardShortCut" },
+        center = {
+            { desc = "[ Github] [ ReStranger] [ 0.0.1]", group = "DashboardShortCut" },
+            {
+                icon = "  ",
+                icon_hl = "BufferLineHintSelected",
+                desc = "Find File",
+                key = "SPC f f",
+                key_format = " %s",
+            },
+            {
+                icon = "  ",
+                icon_hl = "BufferLineHintSelected",
+                desc = "Find World",
+                key = "SPC f w",
+                key_format = " %s",
+            },
         },
-        footer = {
-            "",
-            '󱄅  "From nix for nix on nix" — Alexey Grudinin.',
-        },
+        package = { enabled = true },
+        vertical_center = true,
     },
 }
