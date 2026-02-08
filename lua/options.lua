@@ -7,7 +7,8 @@ local wo = vim.wo
 
 -- Disable any visual plugins (like lualine and etc)
 g.re_nvim_style = "normal" -- normal | minimal
-g.re_nvim_border_style = "none" -- rounded | square | none
+g.re_nvim_border_style = "rounded" -- rounded | square | none
+g.re_nvim_lualine_separator = "round" -- "round" | "square" | "title"
 g.re_nvim_theme = "touka" -- catppuccin | gruvbox | touka | none
 
 -- Plugins
@@ -19,7 +20,13 @@ opt.cursorline = true
 opt.colorcolumn = "120"
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-o.winborder = "rounded" -- "rounded | "single" | "none"
+
+local winborder = {
+    rounded = "rounded",
+    square = "single",
+    none = "none",
+}
+o.winborder = winborder[g.re_nvim_border_style]
 
 wo.number = true
 wo.relativenumber = true
