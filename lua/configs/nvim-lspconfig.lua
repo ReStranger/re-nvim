@@ -48,18 +48,21 @@ local servers = {
 
 lsp.enable(servers)
 
-lsp.config("pyright", {
-    settings = {
-        pyright = {
-            disableOrganizeImports = true,
-        },
-        python = {
-            analysis = {
-                ignore = { "*" },
+lsp.config(
+    "pyright",
+    {
+        settings = {
+            pyright = {
+                disableOrganizeImports = true,
+            },
+            python = {
+                analysis = {
+                    ignore = { "*" },
+                },
             },
         },
-    },
-})
+    }
+)
 
 lsp.config("clangd", {
     cmd = {
