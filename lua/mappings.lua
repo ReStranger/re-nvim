@@ -68,18 +68,15 @@ api.nvim_create_autocmd("LspAttach", {
         map("n", "K", lsp.buf.hover, opts, { desc = "LSP Show hover" })
         map("n", "gi", lsp.buf.implementation, opts, { desc = "LSP Go to implementation" })
 
-        map("n", "<space>sa", lsp.buf.add_workspace_folder, opts, { desc = "LSP Add workspace folder" })
-        map("n", "<space>sr", lsp.buf.remove_workspace_folder, opts, { desc = "LSP Remove workspace folder" })
-        map("n", "<space>sl", function()
+        map("n", "<leader>sa", lsp.buf.add_workspace_folder, opts, { desc = "LSP Add workspace folder" })
+        map("n", "<leader>sr", lsp.buf.remove_workspace_folder, opts, { desc = "LSP Remove workspace folder" })
+        map("n", "<leader>sl", function()
             print(inspect(lsp.lsp.buf.list_workspace_folders()))
-        end, opts, { desc = "LSP Show signature help" })
+        end, opts, { desc = "LSP Show list of workspace folder" })
 
         map("n", "<leader>lr", lsp.buf.rename, opts, { desc = "LSP Rename" })
         map({ "n", "v" }, "<leader>la", lsp.buf.code_action, opts, { desc = "LSP Code actions" })
         map("n", "gr", lsp.buf.references, opts, { desc = "LSP Buffer references" })
-        map("n", "<leafer>lf", function()
-            lsp.buf.format { async = true }
-        end, opts, { desc = "LSP Buffer format" })
     end,
 })
 map("n", "<leader>lf", function()
@@ -87,7 +84,7 @@ map("n", "<leader>lf", function()
         timeout_ms = 500,
         lsp_fallback = true,
     }
-end, { desc = "LSP Formal buffer" })
+end, { desc = "LSP Formal buffer" }, { noremap = true, silent = true })
 
 -- DAP
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", { desc = "DAP Toggle breakpoint" })
