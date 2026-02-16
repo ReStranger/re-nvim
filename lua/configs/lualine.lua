@@ -37,7 +37,7 @@ elseif g.re_nvim_theme == "touka" then
         white = "#e9ecf2",
         red = "#f25c5c",
         violet = "#f17ac6",
-        grey = "#373740",
+        grey = "#212126",
     }
 else
     colors = {
