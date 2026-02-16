@@ -118,7 +118,7 @@ require("lazy").setup {
     } or {},
     {
         "xiyaowong/transparent.nvim",
-        cmd = "TransparentToggle",
+        opts = {},
     },
     {
         "karb94/neoscroll.nvim",
