@@ -1,0 +1,74 @@
+{
+  "option_module_template": {
+    "prefix": "option.module",
+    "body": [
+      "{",
+      "  config,",
+      "  lib,",
+      "  ...",
+      "}:\n",
+      "let",
+      "  cfg = config.module.${1:module};",
+      "  inherit (lib) mkEnableOption mkIf;",
+      "in",
+      "{",
+      "  options.module.${1:module} = {",
+      "    enable = mkEnableOption \"Enable ${1:module} module\";",
+      "  };\n",
+      "  config = mkIf cfg.enable {",
+      "    programs.${1:module} = {",
+      "      enable = true;",
+      "    };",
+      "  };",
+      "}"
+    ]
+  },
+  "option_program_template": {
+    "prefix": "option.program",
+    "body": [
+      "{",
+      "  config,",
+      "  lib,",
+      "  ...",
+      "}:\n",
+      "let",
+      "  cfg = config.module.programs.${1:module};",
+      "  inherit (lib) mkEnableOption mkIf;",
+      "in",
+      "{",
+      "  options.module.programs.${1:module} = {",
+      "    enable = mkEnableOption \"Enable ${1:module} program\";",
+      "  };\n",
+      "  config = mkIf cfg.enable {",
+      "    programs.${1:module} = {",
+      "      enable = true;",
+      "    };",
+      "  };",
+      "}"
+    ]
+  },
+  "option_service_template": {
+    "prefix": "option.service",
+    "body": [
+      "{",
+      "  config,",
+      "  lib,",
+      "  ...",
+      "}:\n",
+      "let",
+      "  cfg = config.module.services.${1:module};",
+      "  inherit (lib) mkEnableOption mkIf;",
+      "in",
+      "{",
+      "  options.module.services.${1:module} = {",
+      "    enable = mkEnableOption \"Enable ${1:module} service\";",
+      "  };\n",
+      "  config = mkIf cfg.enable {",
+      "    services.${1:module} = {",
+      "      enable = true;",
+      "    };",
+      "  };",
+      "}"
+    ]
+  }
+}
