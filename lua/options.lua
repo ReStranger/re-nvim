@@ -21,6 +21,9 @@ opt.colorcolumn = "120"
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
 local winborder = {
     rounded = "rounded",
     square = "single",
