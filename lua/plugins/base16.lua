@@ -1,0 +1,40 @@
+return {
+    "ReStranger/base16-nvim",
+    branch = "blink-cmp-support",
+    priority = 1000,
+    lazy = false,
+    config = function()
+        require("base16-colorscheme").with_config {
+            telescope = true,
+            telescope_borders = true,
+            indentblankline = true,
+            notify = true,
+            ts_rainbow = true,
+            cmp = false,
+            blink = true,
+            illuminate = true,
+            lsp_semantic = true,
+            mini_completion = true,
+            dapui = true,
+            diffview = true,
+        }
+        require("base16-colorscheme").setup {
+            base00 = "#121214",
+            base01 = "#212126",
+            base02 = "#2a2a30",
+            base03 = "#373740",
+            base04 = "#676778",
+            base05 = "#e9ecf2",
+            base06 = "#e9ecf2",
+            base07 = "#e9ecf2",
+            base08 = "#f25c5c",
+            base09 = "#ff9c6a",
+            base0A = "#ff9c6a",
+            base0B = "#55b682",
+            base0C = "#7aaaff",
+            base0D = "#f17ac6",
+            base0E = "#B87AFF",
+            base0F = "#9595ab",
+        }
+    end,
+}
