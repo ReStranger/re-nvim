@@ -22,3 +22,7 @@ Snacks.keymap.set("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>", { desc = "Tmux
 -- NeoTree
 Snacks.keymap.set("n", "<leader>i", "<cmd>Neotree float toggle<CR>", { desc = "Neotree toggle float" })
 Snacks.keymap.set("n", "<c-n>", "<cmd>Neotree left toggle<CR>", { desc = "Neotree toggle left" })
+
+-- Profiler
+Snacks.toggle.profiler():map "<leader>pp"
+Snacks.toggle.profiler_highlights():map "<leader>ph"
