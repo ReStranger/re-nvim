@@ -43,28 +43,28 @@ return {
                         has = "signatureHelp",
                     },
                     {
-                        "<leader>ca",
+                        "<leader>la",
                         vim.lsp.buf.code_action,
                         desc = "Code Action",
                         mode = { "n", "x" },
                         has = "codeAction",
                     },
                     {
-                        "<leader>cc",
+                        "<leader>lc",
                         vim.lsp.codelens.run,
                         desc = "Run Codelens",
                         mode = { "n", "x" },
                         has = "codeLens",
                     },
                     {
-                        "<leader>cC",
+                        "<leader>lC",
                         vim.lsp.codelens.refresh,
                         desc = "Refresh & Display Codelens",
                         mode = { "n" },
                         has = "codeLens",
                     },
                     {
-                        "<leader>cR",
+                        "<leader>lR",
                         function()
                             Snacks.rename.rename_file()
                         end,
@@ -72,7 +72,7 @@ return {
                         mode = { "n" },
                         has = { "workspace/didRenameFiles", "workspace/willRenameFiles" },
                     },
-                    { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
+                    { "<leader>lr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
                     {
                         "]]",
                         function()
@@ -180,7 +180,7 @@ return {
 
         vim.lsp.config("clangd", {
             keys = {
-                { "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+                { "<leader>lh", "<cmd>LspClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
             },
             root_markers = {
                 "compile_commands.json",
