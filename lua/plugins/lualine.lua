@@ -15,38 +15,54 @@ return {
 
         vim.o.laststatus = vim.g.lualine_laststatus
 
-        local colors = {
-            black = "#121214", -- base00
-            bg_mid = "#212126", -- base01
-            gray = "#373740", -- base03
-            silver = "#e9ecf2", -- base05
-            red = "#f25c5c", -- base08
-            orange = "#ff9c6a", -- base09
-            green = "#55b682", -- base0B
-            blue = "#7aaaff", -- base0C
-            magenta = "#f17ac6", -- base0D
-            purple = "#B87AFF", -- base0E
-        }
+        local function get_stylix_colors()
+            local palette_path = os.getenv "HOME" .. "/.config/stylix/palette.json"
+            local palette_file = io.open(palette_path, "r")
+            if not palette_file then
+                return nil
+            end
+            local content = palette_file:read "*a"
+            palette_file:close()
+            local ok, palette = pcall(vim.json.decode, content)
+            if not ok or not palette then
+                return nil
+            end
+            return {
+                black = "#" .. (palette.base00 or "121214"),
+                bg_mid = "#" .. (palette.base01 or "212126"),
+                gray = "#" .. (palette.base03 or "373740"),
+                silver = "#" .. (palette.base05 or "e9ecf2"),
+                red = "#" .. (palette.base08 or "f25c5c"),
+                orange = "#" .. (palette.base09 or "ff9c6a"),
+                green = "#" .. (palette.base0B or "55b682"),
+                blue = "#" .. (palette.base0C or "7aaaff"),
+                magenta = "#" .. (palette.base0D or "f17ac6"),
+                purple = "#" .. (palette.base0E or "b87aff"),
+            }
+        end
 
-        local theme = {
-            normal = {
-                a = { fg = colors.black, bg = colors.blue, gui = "bold" },
-                b = { fg = colors.white, bg = colors.gray },
-                c = { fg = colors.silver, bg = colors.black },
-            },
-            insert = { a = { fg = colors.black, bg = colors.green, gui = "bold" } },
-            visual = { a = { fg = colors.black, bg = colors.purple, gui = "bold" } },
-            replace = { a = { fg = colors.black, bg = colors.red, gui = "bold" } },
-            inactive = {
-                a = { fg = colors.silver, bg = colors.gray, gui = "bold" },
-                b = { fg = colors.gray, bg = colors.black },
-                c = { fg = colors.silver, bg = colors.black },
-            },
-        }
+        local stylix_colors = get_stylix_colors()
+
+        local theme = stylix_colors
+            and {
+                normal = {
+                    a = { fg = stylix_colors.black, bg = stylix_colors.blue, gui = "bold" },
+                    b = { fg = stylix_colors.white, bg = stylix_colors.gray },
+                    c = { fg = stylix_colors.silver, bg = stylix_colors.black },
+                },
+                insert = { a = { fg = stylix_colors.black, bg = stylix_colors.green, gui = "bold" } },
+                visual = { a = { fg = stylix_colors.black, bg = stylix_colors.purple, gui = "bold" } },
+                replace = { a = { fg = stylix_colors.black, bg = stylix_colors.red, gui = "bold" } },
+                inactive = {
+                    a = { fg = stylix_colors.silver, bg = stylix_colors.gray, gui = "bold" },
+                    b = { fg = stylix_colors.gray, bg = stylix_colors.black },
+                    c = { fg = stylix_colors.silver, bg = stylix_colors.black },
+                },
+            }
 
         local opts = {
             options = {
-                theme = theme,
+                theme = theme or "auto",
                 globalstatus = vim.o.laststatus == 3,
                 disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
                 component_separators = { left = "", right = "" },
