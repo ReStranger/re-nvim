@@ -59,6 +59,37 @@ return {
                     c = { fg = stylix_colors.silver, bg = stylix_colors.black },
                 },
             }
+        local spinner = require("lualine.component"):extend()
+
+        spinner.processing = false
+        spinner.spinner_index = 1
+
+        local spinner_symbols = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+
+        function spinner:init(options)
+            spinner.super.init(self, options)
+            local group = vim.api.nvim_create_augroup("CodeCompanionHooks", {})
+            vim.api.nvim_create_autocmd({ "User" }, {
+                pattern = "CodeCompanionRequest*",
+                group = group,
+                callback = function(request)
+                    if request.match == "CodeCompanionRequestStarted" then
+                        self.processing = true
+                        self.spinner_index = 1
+                    elseif request.match == "CodeCompanionRequestFinished" then
+                        self.processing = false
+                    end
+                end,
+            })
+        end
+
+        function spinner:update_status()
+            if self.processing then
+                self.spinner_index = (self.spinner_index % 10) + 1
+                return "󰚩 " .. spinner_symbols[self.spinner_index]
+            end
+            return ""
+        end
 
         local opts = {
             options = {
@@ -118,6 +149,12 @@ return {
                         end,
                         color = function()
                             return { fg = Snacks.util.color "Constant" }
+                        end,
+                    },
+                    {
+                        spinner,
+                        color = function()
+                            return { fg = Snacks.util.color "Statement" }
                         end,
                     },
                     {
