@@ -6,7 +6,9 @@ return {
         local function check()
             local cwd = vim.uv.cwd()
             if vim.fn.filereadable(cwd .. "/CMakeLists.txt") == 1 then
+                ---@diagnostic disable: different-requires
                 require("lazy").load { plugins = { "cmake-tools.nvim" } }
+                ---@diagnostic enable: different-requires
                 loaded = true
             end
         end
