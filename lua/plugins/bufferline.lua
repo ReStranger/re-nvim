@@ -20,7 +20,7 @@ return {
       right_mouse_command = function(n) Snacks.bufdelete(n) end,
             diagnostics = "nvim_lsp",
             always_show_bufferline = false,
-            diagnostics_indicator = function(count, level, diagnostics_dict, context)
+            diagnostics_indicator = function(count, level, _, _)
                 local icon = level:match "error" and " " or " "
                 return " " .. icon .. count
             end,
