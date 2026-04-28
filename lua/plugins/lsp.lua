@@ -284,7 +284,7 @@ return {
             settings = {
                 nixd = {
                     formatting = {
-                        command = { "nixfmt" },
+                        command = { "alejandra" },
                     },
                 },
             },
