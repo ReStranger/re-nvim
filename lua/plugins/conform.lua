@@ -13,6 +13,7 @@ return {
             python = { "black" },
             c = { "clang_format" },
             cpp = { "clang_format" },
+            cmake = { "cmake_format" },
             markdown = { "prettierd" },
             markdown_inline = { "prettierd" },
         },
