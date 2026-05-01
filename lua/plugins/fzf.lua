@@ -11,6 +11,10 @@ return {
             file_ignore_patterns = { "%.git/", "%.cache/", "node_modules/", "build/" },
         },
     },
+    config = function(_, opts)
+        require("fzf-lua").setup(opts)
+        require("fzf-lua").register_ui_select()
+    end,
     keys = {
         {
             "<leader>ff",
