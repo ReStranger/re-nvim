@@ -1,127 +1,38 @@
 return {
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
-    opts = {
-        servers = {
-            ["*"] = {
-                capabilities = {
-                    workspace = {
-                        fileOperations = {
-                            didRename = true,
-                            willRename = true,
-                        },
-                    },
-                },
-                keys = {
-                    { "gd", vim.lsp.buf.definition, desc = "Goto Definition", has = "definition" },
-                    { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
-                    { "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
-                    { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
-                    { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-                    {
-                        "K",
-                        function()
-                            return vim.lsp.buf.hover()
-                        end,
-                        desc = "Hover",
-                    },
-                    {
-                        "gK",
-                        function()
-                            return vim.lsp.buf.signature_help()
-                        end,
-                        desc = "Signature Help",
-                        has = "signatureHelp",
-                    },
-                    {
-                        "<c-k>",
-                        function()
-                            return vim.lsp.buf.signature_help()
-                        end,
-                        mode = "i",
-                        desc = "Signature Help",
-                        has = "signatureHelp",
-                    },
-                    {
-                        "<leader>la",
-                        vim.lsp.buf.code_action,
-                        desc = "Code Action",
-                        mode = { "n", "x" },
-                        has = "codeAction",
-                    },
-                    {
-                        "<leader>lc",
-                        vim.lsp.codelens.run,
-                        desc = "Run Codelens",
-                        mode = { "n", "x" },
-                        has = "codeLens",
-                    },
-                    {
-                        "<leader>lC",
-                        vim.lsp.codelens.refresh,
-                        desc = "Refresh & Display Codelens",
-                        mode = { "n" },
-                        has = "codeLens",
-                    },
-                    {
-                        "<leader>lR",
-                        function()
-                            Snacks.rename.rename_file()
-                        end,
-                        desc = "Rename File",
-                        mode = { "n" },
-                        has = { "workspace/didRenameFiles", "workspace/willRenameFiles" },
-                    },
-                    { "<leader>lr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
-                    {
-                        "]]",
-                        function()
-                            Snacks.words.jump(vim.v.count1)
-                        end,
-                        has = "documentHighlight",
-                        desc = "Next Reference",
-                        enabled = function()
-                            return Snacks.words.is_enabled()
-                        end,
-                    },
-                    {
-                        "[[",
-                        function()
-                            Snacks.words.jump(-vim.v.count1)
-                        end,
-                        hak = "documentHighlight",
-                        desc = "Prev Reference",
-                        enabled = function()
-                            return Snacks.words.is_enabled()
-                        end,
-                    },
-                    {
-                        "<a-n>",
-                        function()
-                            Snacks.words.jump(vim.v.count1, true)
-                        end,
-                        has = "documentHighlight",
-                        desc = "Next Reference",
-                        enabled = function()
-                            return Snacks.words.is_enabled()
-                        end,
-                    },
-                    {
-                        "<a-p>",
-                        function()
-                            Snacks.words.jump(-vim.v.count1, true)
-                        end,
-                        has = "documentHighlight",
-                        desc = "Prev Reference",
-                        enabled = function()
-                            return Snacks.words.is_enabled()
-                        end,
-                    },
-                },
-            },
-        },
-    },
     config = function()
+        vim.api.nvim_create_autocmd("LspAttach", {
+            group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+            callback = function(ev)
+                vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+                local opts = { buffer = ev.buf }
+                local map = function(lhs, rhs, desc, mode)
+                    vim.keymap.set(mode or "n", lhs, rhs, vim.tbl_extend("force", opts, { desc = desc }))
+                end
+
+                map("gd", vim.lsp.buf.definition, "Goto Definition")
+                map("gr", vim.lsp.buf.references, "References")
+                map("gI", vim.lsp.buf.implementation, "Goto Implementation")
+                map("gy", vim.lsp.buf.type_definition, "Goto T[y]pe Definition")
+                map("gD", vim.lsp.buf.declaration, "Goto Declaration")
+                map("K", vim.lsp.buf.hover, "Hover")
+                map("gK", vim.lsp.buf.signature_help, "Signature Help")
+                map("<c-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
+                map("<leader>la", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
+                map("<leader>lc", vim.lsp.codelens.run, "Run Codelens", { "n", "x" })
+                map("<leader>lC", vim.lsp.codelens.refresh, "Refresh & Display Codelens")
+                map("<leader>lR", function() Snacks.rename.rename_file() end, "Rename File")
+                map("<leader>lr", vim.lsp.buf.rename, "Rename")
+
+                local client = vim.lsp.get_client_by_id(ev.data.client_id)
+                if client and client.name == "clangd" then
+                    map("<leader>lh", "<cmd>LspClangdSwitchSourceHeader<cr>", "Switch Source/Header (C/C++)")
+                end
+            end,
+        })
+
         vim.lsp.inlay_hint.enable(true, {})
         vim.lsp.codelens.enable(true)
         vim.diagnostic.config {
@@ -236,7 +147,7 @@ return {
                 command = "_typescript.organizeImports",
                 arguments = { vim.api.nvim_buf_get_name(0) },
             }
-            vim.buf.execute_command(params)
+            vim.lsp.buf.execute_command(params)
         end
 
         vim.lsp.config("ts_ls", {
