@@ -21,5 +21,19 @@ return {
             end,
         })
     end,
-    opts = {},
+    opts = function()
+        local osys = require "cmake-tools.osys"
+        local opts = {
+            cmake_build_directory = function()
+                if osys.iswin32 then
+                    return "build\\${variant:buildType}"
+                end
+                return "build/${variant:buildType}"
+            end,
+            cmake_compile_commands_options = {
+                action = "none",
+            },
+        }
+        return opts
+    end,
 }
