@@ -1,6 +1,5 @@
 return {
-    "ReStranger/base16-nvim",
-    branch = "blink-cmp-support",
+    "RRethy/base16-nvim",
     priority = 1000,
     lazy = false,
     config = function()
