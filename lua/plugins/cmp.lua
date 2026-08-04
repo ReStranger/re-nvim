@@ -7,7 +7,6 @@ return {
         "bydlw98/blink-cmp-env",
         "Kaiser-Yang/blink-cmp-dictionary",
         "Kaiser-Yang/blink-cmp-git",
-        "jdrupal-dev/css-vars.nvim",
         "erooke/blink-cmp-latex",
     },
     opts = {
@@ -46,7 +45,7 @@ return {
         signature = { enabled = true, window = { border = "rounded" } },
         sources = {
             -- Добавил css_vars в default, чтобы он работал
-            default = { "latex", "git", "dictionary", "lsp", "path", "snippets", "buffer", "env", "css_vars" },
+            default = { "latex", "git", "dictionary", "lsp", "path", "snippets", "buffer", "env" },
             providers = {
                 env = { name = "Env", module = "blink-cmp-env" },
                 dictionary = {
@@ -55,11 +54,6 @@ return {
                     min_keyword_length = 3,
                 },
                 git = { module = "blink-cmp-git", name = "Git" },
-                css_vars = {
-                    name = "css-vars",
-                    module = "css-vars.blink",
-                    opts = { search_extensions = { ".js", ".ts", ".jsx", ".tsx" } },
-                },
                 latex = {
                     name = "Latex",
                     module = "blink-cmp-latex",
