@@ -14,6 +14,7 @@ return {
             c = { "clang_format" },
             cpp = { "clang_format" },
             cmake = { "cmake_format" },
+            nix = { "alejandra" },
             markdown = { "prettierd" },
             markdown_inline = { "prettierd" },
         },
