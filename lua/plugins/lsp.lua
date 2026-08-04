@@ -23,7 +23,9 @@ return {
                 map("<leader>la", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
                 map("<leader>lc", vim.lsp.codelens.run, "Run Codelens", { "n", "x" })
                 map("<leader>lC", vim.lsp.codelens.refresh, "Refresh & Display Codelens")
-                map("<leader>lR", function() Snacks.rename.rename_file() end, "Rename File")
+                map("<leader>lR", function()
+                    Snacks.rename.rename_file()
+                end, "Rename File")
                 map("<leader>lr", vim.lsp.buf.rename, "Rename")
 
                 local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -71,7 +73,7 @@ return {
             "nixd",
             "dockerls",
             "marksman",
-            "hyprls"
+            "hyprls",
         }
 
         vim.lsp.enable(servers)
