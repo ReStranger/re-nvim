@@ -97,13 +97,13 @@ return {
                 globalstatus = vim.o.laststatus == 3,
                 disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
                 component_separators = { left = "", right = "" },
-                section_separators = { left = "", right = "" },
+                section_separators = { left = " ", right = " " },
             },
             sections = {
-                lualine_a = { { "mode", padding = { left = 1, right = 0 } } },
+                lualine_a = { { "mode", padding = { left = 1, right = 1 } } },
                 lualine_b = {
-                    { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-                    { "filename", padding = { left = 0, right = 0 } },
+                    { "filetype", icon_only = true, separator = "", padding = { left = 0, right = 0 } },
+                    { "filename", padding = { left = 0, right = 1 } },
                 },
                 lualine_c = {
                     { "branch", icon = "", padding = { left = 1, right = 0 } },
@@ -212,7 +212,7 @@ return {
                             local root = (clients[1] and clients[1].config.root_dir) or vim.fn.getcwd()
                             return "󰉋 " .. vim.fn.fnamemodify(root, ":t")
                         end,
-                        padding = { left = 0, right = 1 },
+                        padding = { left = 1, right = 0 },
                     },
                 },
                 lualine_z = {
