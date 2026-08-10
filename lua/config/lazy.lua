@@ -20,6 +20,7 @@ require "config.options"
 -- Setup lazy.nvim
 require("lazy").setup {
     ui = {
+        border = "rounded",
         icons = {
             ft = "",
             lazy = "󰂠 ",
