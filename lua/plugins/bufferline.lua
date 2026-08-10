@@ -216,7 +216,7 @@ local function bufferline_opts()
         highlights = static_highlights(colors),
         options = {
             themable = false,
-            separator_style = "thin",
+            separator_style = { "", "" },
             color_icons = false,
             show_buffer_close_icons = true,
             tab_size = 1,
