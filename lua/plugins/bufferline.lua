@@ -59,12 +59,14 @@ end
 
 local function get_theme_colors()
     local default = get_hl_color("Special", "fg")
+    local hint = get_hl_color("DiagnosticHint", "fg") or get_hl_color("DiagnosticInfo", "fg") or default
     local warning = get_hl_color("Keyword", "fg")
     local error = get_hl_color("DiagnosticError", "fg") or get_hl_color("ErrorMsg", "fg")
     local base = get_hl_color("Normal", "bg") or get_hl_color("StatusLine", "bg")
 
     return {
         default = default,
+        hint = hint,
         warning = warning,
         error = error,
         base = base,
@@ -77,6 +79,8 @@ local function selected_highlight_overrides(colors)
         BufferLineNumbersSelected = { fg = colors.base, bold = true },
         BufferLineCloseButtonSelected = { fg = colors.base },
         BufferLineDiagnosticSelected = { fg = colors.base, bold = true, italic = true },
+        BufferLineHintSelected = { fg = colors.base, bold = true, italic = true },
+        BufferLineHintDiagnosticSelected = { fg = colors.base, bold = true, italic = true },
         BufferLineWarningSelected = { fg = colors.base, bold = true, italic = true },
         BufferLineWarningDiagnosticSelected = { fg = colors.base, bold = true, italic = true },
         BufferLineErrorSelected = { fg = colors.base, bold = true, italic = true },
@@ -96,6 +100,8 @@ local function static_highlights(colors)
         buffer_selected = selected_style(colors.default, { fg = colors.base, bold = true, italic = true }),
         numbers_selected = selected_style(colors.default, { fg = colors.base, bold = true }),
         diagnostic_selected = selected_style(colors.default, { fg = colors.base, bold = true, italic = true }),
+        hint_selected = selected_style(colors.hint, { fg = colors.base, bold = true, italic = true }),
+        hint_diagnostic_selected = selected_style(colors.hint, { fg = colors.base, bold = true, italic = true }),
         warning_selected = selected_style(colors.warning, { fg = colors.base, bold = true, italic = true }),
         warning_diagnostic_selected = selected_style(colors.warning, { fg = colors.base, bold = true, italic = true }),
         error_selected = selected_style(colors.error, { fg = colors.base, bold = true, italic = true }),
@@ -121,6 +127,7 @@ local function selected_bg(bufnr, colors)
     end
 
     local diagnostics = vim.diagnostic.get(bufnr)
+    local has_hint = false
     local has_warning = false
     for _, diagnostic in ipairs(diagnostics) do
         if diagnostic.severity == vim.diagnostic.severity.ERROR then
@@ -129,9 +136,16 @@ local function selected_bg(bufnr, colors)
         if diagnostic.severity == vim.diagnostic.severity.WARN then
             has_warning = true
         end
+        if diagnostic.severity == vim.diagnostic.severity.HINT then
+            has_hint = true
+        end
     end
 
-    return has_warning and colors.warning or colors.default
+    if has_warning then
+        return colors.warning
+    end
+
+    return has_hint and colors.hint or colors.default
 end
 
 local function update_bufferline_selected_highlights(bufnr)
