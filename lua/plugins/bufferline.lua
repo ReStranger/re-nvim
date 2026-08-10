@@ -148,6 +148,32 @@ local function selected_bg(bufnr, colors)
     return has_hint and colors.hint or colors.default
 end
 
+local function diagnostic_indicator_icon(level)
+    local config = vim.diagnostic.config()
+    local signs = type(config) == "table" and config.signs or nil
+    local text = type(signs) == "table" and signs.text or nil
+
+    if type(text) ~= "table" then
+        return
+    end
+
+    if type(level) ~= "string" then
+        return text[vim.diagnostic.severity.INFO]
+    end
+
+    level = level:lower()
+    if level:match "error" then
+        return text[vim.diagnostic.severity.ERROR]
+    end
+    if level:match "warning" or level:match "warn" then
+        return text[vim.diagnostic.severity.WARN]
+    end
+    if level:match "hint" then
+        return text[vim.diagnostic.severity.HINT]
+    end
+    return text[vim.diagnostic.severity.INFO]
+end
+
 local function update_bufferline_selected_highlights(bufnr)
     local colors = get_theme_colors()
     local selected = selected_highlight_overrides(colors)
@@ -210,9 +236,7 @@ local function bufferline_opts()
             diagnostics = "nvim_lsp",
             always_show_bufferline = true,
             diagnostics_indicator = function(count, level, _, _)
-                local is_error = type(level) == "string" and level:match("error")
-                local icon = is_error and " " or " "
-                return " " .. icon .. count
+                return diagnostic_indicator_icon(level) .. " " .. count
             end,
             offsets = {
                 {
