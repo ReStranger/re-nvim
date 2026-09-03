@@ -1,6 +1,5 @@
 return {
     "windwp/nvim-ts-autotag",
-    event = "VeryLazy",
     ft = {
         "astro",
         "glimmer",
@@ -9,6 +8,7 @@ return {
         "javascript",
         "jsx",
         "markdown",
+        "markdown_inline",
         "php",
         "rescript",
         "svelte",
