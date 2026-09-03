@@ -2,11 +2,6 @@ return {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-        winopts = {
-            preview = {
-                default = "bat",
-            },
-        },
         defaults = {
             file_ignore_patterns = { "%.git/", "%.cache/", "node_modules/", "build/" },
         },
