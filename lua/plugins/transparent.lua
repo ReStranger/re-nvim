@@ -16,6 +16,8 @@ return {
             "GitSignsChangeLn",
             "GitSignsDeleteLn",
             "GitSignsCurrentLineBlame",
+            "LazyProp",
+            "LazyDimmed",
         },
         exclude_groups = {},
         on_clear = function() end,
