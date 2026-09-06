@@ -18,6 +18,7 @@ return {
             "GitSignsCurrentLineBlame",
             "LazyProp",
             "LazyDimmed",
+            "NeoTreeGitModified",
         },
         exclude_groups = {},
         on_clear = function() end,
