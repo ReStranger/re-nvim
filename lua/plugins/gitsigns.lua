@@ -53,7 +53,7 @@ return {
         on_attach = function(buffer)
             local gs = package.loaded.gitsigns
             local function map(mode, l, r, desc)
-                vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc, silent = true })
+                Snacks.keymap.set(mode, l, r, { buffer = buffer, desc = desc, silent = true })
             end
             -- stylua: ignore start
             map("n", "]h", function()
@@ -83,17 +83,55 @@ return {
             map("n", "<leader>ghd", gs.diffthis, "Diff This")
             map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
             map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+
+            Snacks.toggle({
+                name = "Git Signs",
+                get = function()
+                    return require("gitsigns.config").config.signcolumn
+                end,
+                set = function(state)
+                    require("gitsigns").toggle_signs(state)
+                end,
+            }):map("<leader>uG", { buffer = buffer })
+            Snacks.toggle({
+                name = "Git Blame Line",
+                get = function()
+                    return require("gitsigns.config").config.current_line_blame
+                end,
+                set = function(state)
+                    require("gitsigns").toggle_current_line_blame(state)
+                end,
+            }):map("<leader>ugb", { buffer = buffer })
+            Snacks.toggle({
+                name = "Git Word Diff",
+                get = function()
+                    return require("gitsigns.config").config.word_diff
+                end,
+                set = function(state)
+                    require("gitsigns").toggle_word_diff(state)
+                end,
+            }):map("<leader>ugd", { buffer = buffer })
+            Snacks.toggle({
+                name = "Git Line Highlight",
+                get = function()
+                    return require("gitsigns.config").config.linehl
+                end,
+                set = function(state)
+                    require("gitsigns").toggle_linehl(state)
+                end,
+            }):map("<leader>ugh", { buffer = buffer })
+            Snacks.toggle({
+                name = "Git Number Highlight",
+                get = function()
+                    return require("gitsigns.config").config.numhl
+                end,
+                set = function(state)
+                    require("gitsigns").toggle_numhl(state)
+                end,
+            }):map("<leader>ugn", { buffer = buffer })
         end,
     },
-    config = function()
-        Snacks.toggle({
-            name = "Git Signs",
-            get = function()
-                return require("gitsigns.config").config.signcolumn
-            end,
-            set = function(state)
-                require("gitsigns").toggle_signs(state)
-            end,
-        }):map "<leader>uG"
+    config = function(_, opts)
+        require("gitsigns").setup(opts)
     end,
 }
