@@ -106,6 +106,7 @@ return {
                 "meson.build",
                 "meson_options.txt",
                 "build.ninja",
+                "CMakeLists.txt",
                 ".git",
             },
             capabilities = {
