@@ -19,9 +19,10 @@ vim.opt.smartindent = true
 vim.opt.mouse = "a"
 vim.opt.mousefocus = true
 
+vim.o.termguicolors = true
+vim.o.winborder = "rounded"
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.o.termguicolors = true
 vim.opt.formatoptions = "jcroqlnt" -- tcqj
 vim.opt.fillchars = {
     foldopen = "",
