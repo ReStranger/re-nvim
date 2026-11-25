@@ -14,7 +14,7 @@ return {
             c = { "clang_format" },
             cpp = { "clang_format" },
             cmake = { "cmake_format" },
-            nix = { "alejandra" },
+            nix = { "nixpkgs_fmt" },
             markdown = { "prettierd" },
             markdown_inline = { "prettierd" },
         },
@@ -29,7 +29,7 @@ return {
         {
             "<leader>lf",
             function()
-                require("conform").format { timeout_ms = 500, lsp_fallback = true }
+                require("conform").format { timeout_ms = 500, lsp_format = "fallback" }
             end,
             mode = "n",
             desc = "Format buffer",
